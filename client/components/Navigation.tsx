@@ -8,12 +8,14 @@ import {
   Menu,
   X,
   User,
+  Apple,
 } from "lucide-react";
 import { useState } from "react";
 
 const navigation = [
   { name: "Dashboard", href: "/", icon: LayoutDashboard },
   { name: "Habits", href: "/habits", icon: Target },
+  { name: "Nutrition", href: "/nutrition", icon: Apple },
   { name: "Tips", href: "/tips", icon: Lightbulb },
   { name: "Mood", href: "/mood", icon: Heart },
 ];
