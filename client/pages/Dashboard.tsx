@@ -358,6 +358,12 @@ export default function Dashboard() {
             </div>
           </CardContent>
         </Card>
+
+        {/* Wellness Chatbot */}
+        <WellnessChatbot
+          userName={mockData.user.name}
+          userHabits={mockData.today}
+        />
       </main>
     </div>
   );
