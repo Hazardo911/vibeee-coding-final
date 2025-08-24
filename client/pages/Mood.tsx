@@ -48,6 +48,7 @@ export default function Mood() {
   const [suggestions, setSuggestions] = useState<string[]>([]);
   const [isLoadingSuggestions, setIsLoadingSuggestions] = useState(false);
   const [moodLogged, setMoodLogged] = useState(false);
+  const [showRelaxationGame, setShowRelaxationGame] = useState(false);
 
   const logMood = async () => {
     if (!selectedMood) return;
