@@ -58,6 +58,10 @@ export default function Mood() {
       const moodSuggestions = await apiService.getMoodSuggestions(selectedMood);
       setSuggestions(moodSuggestions);
       setMoodLogged(true);
+
+      // Show relaxation game for negative moods
+      const negativeMoods = ['sad', 'stressed', 'anxious'];
+      setShowRelaxationGame(negativeMoods.includes(selectedMood));
     } catch (error) {
       console.error('Failed to get mood suggestions:', error);
     } finally {
