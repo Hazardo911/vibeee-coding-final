@@ -34,9 +34,9 @@ export default function RelaxationGame({ onComplete }: RelaxationGameProps) {
   };
 
   const phaseColors = {
-    inhale: "from-wellness-blue to-wellness-light-blue",
+    inhale: "from-wellness-teal to-wellness-light-teal",
     hold: "from-wellness-green to-wellness-light-green",
-    exhale: "from-wellness-purple to-purple-300",
+    exhale: "from-wellness-navy to-blue-300",
     pause: "from-gray-400 to-gray-300",
   };
 
@@ -169,7 +169,7 @@ export default function RelaxationGame({ onComplete }: RelaxationGameProps) {
             className={cn(
               "flex items-center space-x-2",
               isPlaying
-                ? "bg-wellness-orange hover:bg-wellness-orange/90"
+                ? "bg-wellness-gold hover:bg-wellness-gold/90"
                 : "bg-wellness-green hover:bg-wellness-green/90",
             )}
           >

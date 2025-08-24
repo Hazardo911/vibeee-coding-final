@@ -63,7 +63,7 @@ export default function SmartNotifications({
           message:
             "Have you had your morning glass of water yet? Start your day hydrated! 💧",
           icon: Droplets,
-          color: "text-wellness-blue",
+          color: "text-wellness-teal",
           actions: ["Log Water", "Remind Later"],
         });
       }
@@ -76,7 +76,7 @@ export default function SmartNotifications({
           message:
             "Fuel your body with a healthy breakfast. Have you eaten yet today? 🍳",
           icon: Coffee,
-          color: "text-wellness-orange",
+          color: "text-wellness-gold",
           actions: ["Logged Breakfast", "Get Tips"],
         });
       }
@@ -107,7 +107,7 @@ export default function SmartNotifications({
         message:
           "Afternoon energy dip? Try some deep breathing or check your hydration! ✨",
         icon: Heart,
-        color: "text-wellness-purple",
+        color: "text-wellness-navy",
         actions: ["Breathing Exercise", "Mood Check"],
       });
     }
@@ -121,7 +121,7 @@ export default function SmartNotifications({
         message:
           "How did your wellness goals go today? Time to wind down for quality sleep! 🌙",
         icon: Moon,
-        color: "text-wellness-blue",
+        color: "text-wellness-teal",
         actions: ["Review Day", "Sleep Tips"],
       });
     }
