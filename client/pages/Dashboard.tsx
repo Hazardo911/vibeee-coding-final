@@ -360,6 +360,15 @@ export default function Dashboard() {
           </CardContent>
         </Card>
 
+        {/* Smart Notifications */}
+        <SmartNotifications
+          userHabits={mockData.today}
+          onActionClick={(action) => {
+            console.log('Notification action clicked:', action);
+            // Here you could navigate to different pages or trigger actions
+          }}
+        />
+
         {/* Wellness Chatbot */}
         <WellnessChatbot
           userName={mockData.user.name}
