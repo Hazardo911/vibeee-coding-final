@@ -10,6 +10,7 @@ import Index from "./pages/Index";
 import Habits from "./pages/Habits";
 import Tips from "./pages/Tips";
 import Mood from "./pages/Mood";
+import UserDetails from "./pages/UserDetails";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
