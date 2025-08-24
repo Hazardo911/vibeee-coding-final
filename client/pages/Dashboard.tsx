@@ -2,10 +2,10 @@ import Navigation from "@/components/Navigation";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
-import { 
-  Droplets, 
-  Activity, 
-  Moon, 
+import {
+  Droplets,
+  Activity,
+  Moon,
   Target,
   Sun,
   Cloud,
@@ -13,8 +13,10 @@ import {
   TrendingUp,
   CheckCircle,
   AlertCircle,
-  Heart
+  Heart,
+  BarChart3
 } from "lucide-react";
+import { WeeklyProgressChart, WaterIntakeChart } from "@/components/charts/ProgressCharts";
 import { useState, useEffect } from "react";
 
 // Mock data - in a real app this would come from APIs and user data
