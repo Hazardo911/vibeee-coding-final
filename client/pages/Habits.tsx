@@ -352,6 +352,39 @@ export default function Habits() {
             </p>
           </CardContent>
         </Card>
+
+        {/* Progress Analytics */}
+        <div className="mt-8 grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <Card>
+            <CardHeader>
+              <CardTitle className="flex items-center">
+                <BarChart3 className="w-5 h-5 mr-2 text-wellness-green" />
+                Monthly Streaks
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <StreakChart height={250} />
+              <p className="text-sm text-gray-600 mt-2">
+                Track your consistency across different weeks
+              </p>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardHeader>
+              <CardTitle className="flex items-center">
+                <Target className="w-5 h-5 mr-2 text-wellness-green" />
+                Habit Completion Rates
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <HabitCompletionChart height={250} />
+              <p className="text-sm text-gray-600 mt-2">
+                See which habits you're excelling at this month
+              </p>
+            </CardContent>
+          </Card>
+        </div>
       </main>
     </div>
   );
