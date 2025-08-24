@@ -5,10 +5,10 @@ import { Progress } from "@/components/ui/progress";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
-import { 
-  Droplets, 
-  Activity, 
-  Moon, 
+import {
+  Droplets,
+  Activity,
+  Moon,
   Heart,
   Plus,
   CheckCircle,
@@ -17,8 +17,10 @@ import {
   TrendingUp,
   Calendar,
   Target,
-  Clock
+  Clock,
+  BarChart3
 } from "lucide-react";
+import { StreakChart, HabitCompletionChart } from "@/components/charts/ProgressCharts";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
 
