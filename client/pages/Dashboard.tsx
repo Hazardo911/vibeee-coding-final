@@ -18,6 +18,7 @@ import {
 } from "lucide-react";
 import { WeeklyProgressChart, WaterIntakeChart } from "@/components/charts/ProgressCharts";
 import WellnessChatbot from "@/components/WellnessChatbot";
+import SmartNotifications from "@/components/SmartNotifications";
 import { useState, useEffect } from "react";
 import { apiService, Quote as QuoteType, WeatherData } from "@/services/apiService";
 
