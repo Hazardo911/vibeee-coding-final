@@ -18,6 +18,7 @@ import {
 import { useState, useEffect } from "react";
 import { apiService } from "@/services/apiService";
 import { cn } from "@/lib/utils";
+import RelaxationGame from "@/components/RelaxationGame";
 
 const moods = [
   { id: 'happy', label: 'Happy', icon: '😊', color: 'text-wellness-green', bgColor: 'bg-wellness-light-green' },
