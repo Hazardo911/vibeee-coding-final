@@ -53,13 +53,13 @@ export default function Tips() {
   const getColorForType = (type: string) => {
     switch (type) {
       case "hydration":
-        return "text-wellness-blue";
+        return "text-wellness-teal";
       case "nutrition":
         return "text-wellness-green";
       case "exercise":
-        return "text-wellness-orange";
+        return "text-wellness-gold";
       default:
-        return "text-wellness-purple";
+        return "text-wellness-navy";
     }
   };
 
@@ -96,7 +96,7 @@ export default function Tips() {
       message:
         "Start your day with a glass of water to kickstart your metabolism and rehydrate after sleep.",
       icon: Droplets,
-      color: "text-wellness-blue",
+      color: "text-wellness-teal",
       badge: "Daily Habit",
     },
     {
@@ -112,7 +112,7 @@ export default function Tips() {
       message:
         "Practice 4-7-8 breathing (inhale 4, hold 7, exhale 8) to reduce stress and improve focus.",
       icon: Heart,
-      color: "text-wellness-orange",
+      color: "text-wellness-gold",
       badge: "Mindfulness",
     },
     {
@@ -120,7 +120,7 @@ export default function Tips() {
       message:
         "Go to bed and wake up at the same time every day to regulate your circadian rhythm.",
       icon: Clock,
-      color: "text-wellness-purple",
+      color: "text-wellness-navy",
       badge: "Sleep Health",
     },
   ];
@@ -155,7 +155,7 @@ export default function Tips() {
         <Card className="mb-8">
           <CardHeader>
             <CardTitle className="flex items-center">
-              <Zap className="w-5 h-5 mr-2 text-wellness-orange" />
+              <Zap className="w-5 h-5 mr-2 text-wellness-gold" />
               Personalized Recommendations
             </CardTitle>
           </CardHeader>
@@ -271,7 +271,7 @@ export default function Tips() {
         {/* Tips Categories */}
         <div className="mt-8 grid grid-cols-2 md:grid-cols-4 gap-4">
           <Card className="text-center p-4 hover:shadow-md transition-shadow cursor-pointer">
-            <Droplets className="w-8 h-8 text-wellness-blue mx-auto mb-2" />
+            <Droplets className="w-8 h-8 text-wellness-teal mx-auto mb-2" />
             <h3 className="font-semibold">Hydration</h3>
             <p className="text-sm text-gray-600">Water & fluid intake</p>
           </Card>
@@ -281,12 +281,12 @@ export default function Tips() {
             <p className="text-sm text-gray-600">Healthy eating tips</p>
           </Card>
           <Card className="text-center p-4 hover:shadow-md transition-shadow cursor-pointer">
-            <Activity className="w-8 h-8 text-wellness-orange mx-auto mb-2" />
+            <Activity className="w-8 h-8 text-wellness-gold mx-auto mb-2" />
             <h3 className="font-semibold">Exercise</h3>
             <p className="text-sm text-gray-600">Movement & fitness</p>
           </Card>
           <Card className="text-center p-4 hover:shadow-md transition-shadow cursor-pointer">
-            <Heart className="w-8 h-8 text-wellness-purple mx-auto mb-2" />
+            <Heart className="w-8 h-8 text-wellness-navy mx-auto mb-2" />
             <h3 className="font-semibold">Mindfulness</h3>
             <p className="text-sm text-gray-600">Mental wellness</p>
           </Card>
