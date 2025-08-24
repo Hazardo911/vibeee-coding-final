@@ -17,6 +17,7 @@ import {
   BarChart3
 } from "lucide-react";
 import { WeeklyProgressChart, WaterIntakeChart } from "@/components/charts/ProgressCharts";
+import WellnessChatbot from "@/components/WellnessChatbot";
 import { useState, useEffect } from "react";
 import { apiService, Quote as QuoteType, WeatherData } from "@/services/apiService";
 
