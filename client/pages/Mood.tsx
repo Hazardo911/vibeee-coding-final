@@ -46,7 +46,7 @@ const moods = [
     id: "energetic",
     label: "Energetic",
     icon: "⚡",
-    color: "text-wellness-orange",
+    color: "text-wellness-gold",
     bgColor: "bg-orange-100",
   },
   {
@@ -60,8 +60,8 @@ const moods = [
     id: "calm",
     label: "Calm",
     icon: "😌",
-    color: "text-wellness-blue",
-    bgColor: "bg-wellness-light-blue",
+    color: "text-wellness-teal",
+    bgColor: "bg-wellness-light-teal",
   },
   {
     id: "anxious",
@@ -74,7 +74,7 @@ const moods = [
     id: "excited",
     label: "Excited",
     icon: "🤩",
-    color: "text-wellness-purple",
+    color: "text-wellness-navy",
     bgColor: "bg-purple-100",
   },
 ];
