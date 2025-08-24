@@ -32,7 +32,9 @@ const mockData = {
   weather: {
     condition: "sunny",
     temperature: 72,
-    suggestion: "Perfect weather for outdoor activities!"
+    suggestion: "Perfect weather for outdoor activities!",
+    description: "Sunny and warm",
+    icon: "☀️"
   },
   quote: {
     text: "The groundwork for all happiness is good health.",
