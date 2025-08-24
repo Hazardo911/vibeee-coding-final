@@ -373,7 +373,7 @@ export default function Dashboard() {
             </CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
               <Button
                 variant="outline"
                 className="h-20 flex flex-col items-center justify-center"
@@ -387,6 +387,14 @@ export default function Dashboard() {
               >
                 <Activity className="w-6 h-6 mb-2 text-wellness-green" />
                 <span>Log Exercise</span>
+              </Button>
+              <Button
+                variant="outline"
+                className="h-20 flex flex-col items-center justify-center"
+                onClick={() => window.location.href = '/nutrition'}
+              >
+                <Target className="w-6 h-6 mb-2 text-wellness-orange" />
+                <span>Track Food</span>
               </Button>
               <Button
                 variant="outline"
