@@ -74,6 +74,7 @@ export default function Mood() {
     setCurrentEnergy(50);
     setSuggestions([]);
     setMoodLogged(false);
+    setShowRelaxationGame(false);
   };
 
   const getMoodEmoji = (moodId: string) => {
