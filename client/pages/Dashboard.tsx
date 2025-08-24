@@ -44,7 +44,7 @@ const mockData = {
 
 export default function Dashboard() {
   const [currentTime, setCurrentTime] = useState(new Date());
-  const [quote, setQuote] = useState<Quote>(mockData.quote);
+  const [quote, setQuote] = useState<QuoteType>(mockData.quote);
   const [weather, setWeather] = useState<WeatherData>(mockData.weather);
   const [isLoadingQuote, setIsLoadingQuote] = useState(false);
   const [isLoadingWeather, setIsLoadingWeather] = useState(false);
