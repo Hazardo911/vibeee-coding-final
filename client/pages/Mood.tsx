@@ -137,7 +137,7 @@ export default function Mood() {
     moodHistory.reduce((sum, day) => sum + day.energy, 0) / moodHistory.length;
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-wellness-light-green/20 to-wellness-light-blue/20">
+    <div className="min-h-screen bg-gradient-to-br from-wellness-light-green/20 to-wellness-light-teal/20">
       <Navigation />
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Header */}
@@ -253,7 +253,7 @@ export default function Mood() {
                   {/* Relaxation Game for negative moods */}
                   {showRelaxationGame && (
                     <div className="mb-6">
-                      <div className="bg-gradient-to-r from-wellness-light-blue to-wellness-light-green p-4 rounded-lg mb-4">
+                      <div className="bg-gradient-to-r from-wellness-light-teal to-wellness-light-green p-4 rounded-lg mb-4">
                         <div className="flex items-center space-x-2 mb-2">
                           <Heart className="w-5 h-5 text-wellness-green" />
                           <h4 className="font-semibold text-wellness-green">
