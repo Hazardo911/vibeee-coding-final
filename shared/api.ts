@@ -10,3 +10,37 @@
 export interface DemoResponse {
   message: string;
 }
+
+/**
+ * Nutrition API types
+ */
+export interface NutritionSearchResult {
+  fdcId: number;
+  description: string;
+  brandOwner?: string;
+  calories?: number;
+  protein?: number;
+  carbohydrates?: number;
+  fat?: number;
+  fiber?: number;
+  sugar?: number;
+  sodium?: number;
+  servingSize?: number;
+  servingSizeUnit?: string;
+}
+
+export interface NutritionSearchResponse {
+  foods: NutritionSearchResult[];
+  totalPages: number;
+  currentPage: number;
+}
+
+export interface FoodNutrients {
+  fdcId: number;
+  description: string;
+  nutrients: {
+    name: string;
+    amount: number;
+    unit: string;
+  }[];
+}
