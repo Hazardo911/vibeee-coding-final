@@ -115,6 +115,14 @@ export default function Navigation() {
                   </Link>
                 );
               })}
+              <Link
+                to="/profile"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="flex items-center px-3 py-2 text-base font-medium text-gray-600 hover:text-wellness-green hover:bg-wellness-light-green/30 rounded-md transition-colors"
+              >
+                <User className="w-5 h-5 mr-3" />
+                Profile
+              </Link>
             </div>
           </div>
         )}
