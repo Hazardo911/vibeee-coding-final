@@ -21,7 +21,7 @@ Deployed live on Netlify 🌐.
 
 🛠️ Tech Stack
 
-Frontend: HTML, CSS, JavaScript (React if you used it, otherwise plain JS)
+Frontend: HTML, CSS, JavaScript, React.js
 
 APIs:
 
