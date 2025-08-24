@@ -223,7 +223,27 @@ export default function Mood() {
               ) : (
                 <div className="text-center text-gray-500 py-8">
                   <Heart className="w-12 h-12 mx-auto mb-4 text-gray-300" />
-                  <p>Select your mood and energy level to get personalized wellness suggestions.</p>
+                  <p className="mb-4">Select your mood and energy level to get personalized wellness suggestions.</p>
+                  <div className="mt-6">
+                    <p className="text-sm text-gray-600 mb-3">Need a moment to relax?</p>
+                    <Button
+                      variant="outline"
+                      onClick={() => setShowRelaxationGame(!showRelaxationGame)}
+                      className="flex items-center space-x-2"
+                    >
+                      <Heart className="w-4 h-4" />
+                      <span>{showRelaxationGame ? 'Hide' : 'Try'} Breathing Exercise</span>
+                    </Button>
+                    {showRelaxationGame && (
+                      <div className="mt-6">
+                        <RelaxationGame
+                          onComplete={() => {
+                            alert("Wonderful! 🌟 You've completed the breathing exercise. Take a moment to notice how you feel.");
+                          }}
+                        />
+                      </div>
+                    )}
+                  </div>
                 </div>
               )}
             </CardContent>
