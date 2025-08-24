@@ -18,7 +18,7 @@ import {
 } from "lucide-react";
 import { WeeklyProgressChart, WaterIntakeChart } from "@/components/charts/ProgressCharts";
 import { useState, useEffect } from "react";
-import { apiService, Quote, WeatherData } from "@/services/apiService";
+import { apiService, Quote as QuoteType, WeatherData } from "@/services/apiService";
 
 // Mock data - in a real app this would come from APIs and user data
 const mockData = {
