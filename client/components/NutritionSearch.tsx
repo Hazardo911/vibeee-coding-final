@@ -11,23 +11,26 @@ interface NutritionSearchProps {
   onFoodSelect?: (food: NutritionSearchResult) => void;
 }
 
-export default function NutritionSearch({ onFoodSelect }: NutritionSearchProps) {
+export default function NutritionSearch({
+  onFoodSelect,
+}: NutritionSearchProps) {
   const [searchQuery, setSearchQuery] = useState("");
   const [activeSearch, setActiveSearch] = useState("");
 
   const { data, isLoading, error } = useQuery<NutritionSearchResponse>({
     queryKey: ["nutrition-search", activeSearch],
     queryFn: async () => {
-      if (!activeSearch.trim()) return { foods: [], totalPages: 0, currentPage: 1 };
-      
+      if (!activeSearch.trim())
+        return { foods: [], totalPages: 0, currentPage: 1 };
+
       const response = await fetch(
-        `/api/nutrition/search?query=${encodeURIComponent(activeSearch)}&pageSize=10`
+        `/api/nutrition/search?query=${encodeURIComponent(activeSearch)}&pageSize=10`,
       );
-      
+
       if (!response.ok) {
         throw new Error("Failed to search foods");
       }
-      
+
       return response.json();
     },
     enabled: !!activeSearch,
@@ -92,7 +95,7 @@ export default function NutritionSearch({ onFoodSelect }: NutritionSearchProps) 
               <Info className="w-4 h-4 mr-1" />
               Found {data.foods.length} results
             </div>
-            
+
             {data.foods.map((food) => (
               <div
                 key={food.fdcId}
@@ -109,7 +112,7 @@ export default function NutritionSearch({ onFoodSelect }: NutritionSearchProps) 
                       </p>
                     )}
                   </div>
-                  
+
                   {food.calories !== undefined && (
                     <div className="ml-4 text-center">
                       <div className="flex items-center">

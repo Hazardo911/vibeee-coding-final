@@ -4,14 +4,14 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
 import { useState } from "react";
-import { 
-  Apple, 
-  Zap, 
-  Target, 
-  Plus, 
+import {
+  Apple,
+  Zap,
+  Target,
+  Plus,
   Trash2,
   TrendingUp,
-  Clock
+  Clock,
 } from "lucide-react";
 import { NutritionSearchResult } from "@shared/api";
 
@@ -41,12 +41,12 @@ export default function Nutrition() {
       amount: 100, // Default 100g serving
       timestamp: new Date(),
     };
-    setConsumedFoods(prev => [...prev, newFood]);
+    setConsumedFoods((prev) => [...prev, newFood]);
     setShowSearch(false);
   };
 
   const removeFoodItem = (id: string) => {
-    setConsumedFoods(prev => prev.filter(food => food.id !== id));
+    setConsumedFoods((prev) => prev.filter((food) => food.id !== id));
   };
 
   const calculateTotalNutrients = () => {
@@ -60,7 +60,7 @@ export default function Nutrition() {
           fat: totals.fat + (item.food.fat || 0) * multiplier,
         };
       },
-      { calories: 0, protein: 0, carbs: 0, fat: 0 }
+      { calories: 0, protein: 0, carbs: 0, fat: 0 },
     );
   };
 
@@ -96,7 +96,10 @@ export default function Nutrition() {
               </div>
               <p className="text-xs text-muted-foreground">kcal today</p>
               <Progress
-                value={getProgressPercentage(totals.calories, dailyGoals.calories)}
+                value={getProgressPercentage(
+                  totals.calories,
+                  dailyGoals.calories,
+                )}
                 className="mt-2"
               />
             </CardContent>
@@ -113,7 +116,10 @@ export default function Nutrition() {
               </div>
               <p className="text-xs text-muted-foreground">grams today</p>
               <Progress
-                value={getProgressPercentage(totals.protein, dailyGoals.protein)}
+                value={getProgressPercentage(
+                  totals.protein,
+                  dailyGoals.protein,
+                )}
                 className="mt-2"
               />
             </CardContent>
@@ -163,10 +169,7 @@ export default function Nutrition() {
                   <Clock className="w-5 h-5 mr-2 text-wellness-green" />
                   Today's Food Log
                 </div>
-                <Button 
-                  onClick={() => setShowSearch(!showSearch)}
-                  size="sm"
-                >
+                <Button onClick={() => setShowSearch(!showSearch)} size="sm">
                   <Plus className="w-4 h-4 mr-1" />
                   Add Food
                 </Button>
@@ -191,7 +194,11 @@ export default function Nutrition() {
                           {item.food.description}
                         </h4>
                         <p className="text-xs text-gray-600">
-                          {item.amount}g • {Math.round((item.food.calories || 0) * item.amount / 100)} cal
+                          {item.amount}g •{" "}
+                          {Math.round(
+                            ((item.food.calories || 0) * item.amount) / 100,
+                          )}{" "}
+                          cal
                         </p>
                         <p className="text-xs text-gray-500">
                           {item.timestamp.toLocaleTimeString()}
@@ -227,7 +234,9 @@ export default function Nutrition() {
                 <CardContent>
                   <div className="space-y-4">
                     <div>
-                      <p className="text-sm font-medium text-gray-700">Calories Goal</p>
+                      <p className="text-sm font-medium text-gray-700">
+                        Calories Goal
+                      </p>
                       <p className="text-2xl font-bold text-wellness-gold">
                         {dailyGoals.calories} kcal
                       </p>
@@ -252,9 +261,9 @@ export default function Nutrition() {
                         </p>
                       </div>
                     </div>
-                    
+
                     <div className="pt-4 border-t">
-                      <Button 
+                      <Button
                         onClick={() => setShowSearch(true)}
                         className="w-full"
                       >

@@ -391,7 +391,7 @@ export default function Dashboard() {
               <Button
                 variant="outline"
                 className="h-20 flex flex-col items-center justify-center"
-                onClick={() => window.location.href = '/nutrition'}
+                onClick={() => (window.location.href = "/nutrition")}
               >
                 <Target className="w-6 h-6 mb-2 text-wellness-gold" />
                 <span>Track Food</span>
