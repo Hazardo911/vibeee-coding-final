@@ -110,7 +110,7 @@ export default function Dashboard() {
       icon: Sun,
       color: "text-wellness-orange",
       title: "Weather Alert",
-      message: mockData.weather.suggestion + " Consider a 20-minute walk.",
+      message: weather.suggestion + " Consider a 20-minute walk.",
       action: "Plan Activity"
     },
     {
@@ -243,12 +243,21 @@ export default function Dashboard() {
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <blockquote className="italic text-gray-700 text-lg">
-                  "{mockData.quote.text}"
-                </blockquote>
-                <cite className="text-sm text-gray-500 mt-2 block">
-                  — {mockData.quote.author}
-                </cite>
+                {isLoadingQuote ? (
+                  <div className="animate-pulse">
+                    <div className="h-6 bg-gray-200 rounded mb-2"></div>
+                    <div className="h-4 bg-gray-200 rounded w-1/2"></div>
+                  </div>
+                ) : (
+                  <>
+                    <blockquote className="italic text-gray-700 text-lg">
+                      "{quote.text}"
+                    </blockquote>
+                    <cite className="text-sm text-gray-500 mt-2 block">
+                      — {quote.author}
+                    </cite>
+                  </>
+                )}
               </CardContent>
             </Card>
 
@@ -261,22 +270,32 @@ export default function Dashboard() {
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="flex items-center justify-between mb-3">
-                  <div className="flex items-center space-x-2">
-                    <Sun className="w-8 h-8 text-wellness-orange" />
-                    <div>
-                      <p className="font-medium">Sunny</p>
-                      <p className="text-sm text-gray-600">{mockData.weather.temperature}°F</p>
-                    </div>
+                {isLoadingWeather ? (
+                  <div className="animate-pulse">
+                    <div className="h-8 bg-gray-200 rounded mb-3"></div>
+                    <div className="h-4 bg-gray-200 rounded mb-3"></div>
+                    <div className="h-8 bg-gray-200 rounded"></div>
                   </div>
-                  <CheckCircle className="w-6 h-6 text-wellness-green" />
-                </div>
-                <p className="text-sm text-gray-700 mb-3">
-                  {mockData.weather.suggestion}
-                </p>
-                <Button size="sm" className="w-full">
-                  Plan Outdoor Activity
-                </Button>
+                ) : (
+                  <>
+                    <div className="flex items-center justify-between mb-3">
+                      <div className="flex items-center space-x-2">
+                        <span className="text-2xl">{weather.icon}</span>
+                        <div>
+                          <p className="font-medium capitalize">{weather.description}</p>
+                          <p className="text-sm text-gray-600">{weather.temperature}°F</p>
+                        </div>
+                      </div>
+                      <CheckCircle className="w-6 h-6 text-wellness-green" />
+                    </div>
+                    <p className="text-sm text-gray-700 mb-3">
+                      {weather.suggestion}
+                    </p>
+                    <Button size="sm" className="w-full">
+                      Plan Outdoor Activity
+                    </Button>
+                  </>
+                )}
               </CardContent>
             </Card>
           </div>
