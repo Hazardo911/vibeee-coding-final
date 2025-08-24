@@ -66,7 +66,7 @@ export default function WellnessChatbot({ userName = "friend", userHabits }: Wel
 
     if (hour >= 6 && hour <= 10) {
       prompts.push(
-        "Have you had your morning glass of water yet? 💧",
+        "Have you had your morning glass of water yet? ��",
         "Did you log your breakfast today? 🍳",
         "How are you feeling this morning? Ready to tackle your goals? ✨"
       );
@@ -257,7 +257,7 @@ export default function WellnessChatbot({ userName = "friend", userHabits }: Wel
       <Button
         onClick={toggleChat}
         className={cn(
-          "fixed bottom-6 right-6 w-14 h-14 rounded-full shadow-lg z-50 transition-all",
+          "fixed bottom-6 right-6 w-14 h-14 rounded-full shadow-xl z-[9999] transition-all",
           isOpen ? "bg-red-500 hover:bg-red-600" : "bg-wellness-green hover:bg-wellness-green/90"
         )}
       >
