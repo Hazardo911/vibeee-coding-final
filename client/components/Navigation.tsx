@@ -33,7 +33,7 @@ export default function Navigation() {
           <div className="flex justify-between h-16">
             <div className="flex items-center">
               <div className="flex-shrink-0 flex items-center">
-                <div className="w-8 h-8 bg-gradient-to-br from-wellness-green to-wellness-blue rounded-lg flex items-center justify-center">
+                <div className="w-8 h-8 bg-gradient-to-br from-wellness-green to-wellness-teal rounded-lg flex items-center justify-center">
                   <Activity className="w-5 h-5 text-white" />
                 </div>
                 <span className="ml-2 text-xl font-bold text-wellness-green">
@@ -79,7 +79,7 @@ export default function Navigation() {
         <div className="px-4 sm:px-6">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center">
-              <div className="w-8 h-8 bg-gradient-to-br from-wellness-green to-wellness-blue rounded-lg flex items-center justify-center">
+              <div className="w-8 h-8 bg-gradient-to-br from-wellness-green to-wellness-teal rounded-lg flex items-center justify-center">
                 <Activity className="w-5 h-5 text-white" />
               </div>
               <span className="ml-2 text-xl font-bold text-wellness-green">

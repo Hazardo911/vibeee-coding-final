@@ -113,8 +113,8 @@ export default function NutritionSearch({ onFoodSelect }: NutritionSearchProps) 
                   {food.calories !== undefined && (
                     <div className="ml-4 text-center">
                       <div className="flex items-center">
-                        <Zap className="w-4 h-4 text-wellness-orange mr-1" />
-                        <span className="text-xl font-bold text-wellness-orange">
+                        <Zap className="w-4 h-4 text-wellness-gold mr-1" />
+                        <span className="text-xl font-bold text-wellness-gold">
                           {Math.round(food.calories)}
                         </span>
                       </div>

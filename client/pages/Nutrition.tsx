@@ -88,7 +88,7 @@ export default function Nutrition() {
           <Card>
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
               <CardTitle className="text-sm font-medium">Calories</CardTitle>
-              <Zap className="h-4 w-4 text-wellness-orange" />
+              <Zap className="h-4 w-4 text-wellness-gold" />
             </CardHeader>
             <CardContent>
               <div className="text-2xl font-bold">
@@ -105,7 +105,7 @@ export default function Nutrition() {
           <Card>
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
               <CardTitle className="text-sm font-medium">Protein</CardTitle>
-              <Target className="h-4 w-4 text-wellness-blue" />
+              <Target className="h-4 w-4 text-wellness-teal" />
             </CardHeader>
             <CardContent>
               <div className="text-2xl font-bold">
@@ -139,7 +139,7 @@ export default function Nutrition() {
           <Card>
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
               <CardTitle className="text-sm font-medium">Fat</CardTitle>
-              <TrendingUp className="h-4 w-4 text-wellness-purple" />
+              <TrendingUp className="h-4 w-4 text-wellness-navy" />
             </CardHeader>
             <CardContent>
               <div className="text-2xl font-bold">
@@ -228,14 +228,14 @@ export default function Nutrition() {
                   <div className="space-y-4">
                     <div>
                       <p className="text-sm font-medium text-gray-700">Calories Goal</p>
-                      <p className="text-2xl font-bold text-wellness-orange">
+                      <p className="text-2xl font-bold text-wellness-gold">
                         {dailyGoals.calories} kcal
                       </p>
                     </div>
                     <div className="grid grid-cols-3 gap-4 text-center">
                       <div>
                         <p className="text-xs text-gray-600">Protein</p>
-                        <p className="text-lg font-semibold text-wellness-blue">
+                        <p className="text-lg font-semibold text-wellness-teal">
                           {dailyGoals.protein}g
                         </p>
                       </div>
@@ -247,7 +247,7 @@ export default function Nutrition() {
                       </div>
                       <div>
                         <p className="text-xs text-gray-600">Fat</p>
-                        <p className="text-lg font-semibold text-wellness-purple">
+                        <p className="text-lg font-semibold text-wellness-navy">
                           {dailyGoals.fat}g
                         </p>
                       </div>
