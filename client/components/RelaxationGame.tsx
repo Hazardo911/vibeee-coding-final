@@ -1,50 +1,43 @@
 import { useState, useEffect, useRef } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { 
-  Play, 
-  Pause, 
-  RotateCcw, 
-  Heart,
-  Sparkles,
-  Waves
-} from "lucide-react";
+import { Play, Pause, RotateCcw, Heart, Sparkles, Waves } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface RelaxationGameProps {
   onComplete?: () => void;
 }
 
-type GamePhase = 'inhale' | 'hold' | 'exhale' | 'pause';
+type GamePhase = "inhale" | "hold" | "exhale" | "pause";
 
 export default function RelaxationGame({ onComplete }: RelaxationGameProps) {
   const [isPlaying, setIsPlaying] = useState(false);
-  const [currentPhase, setCurrentPhase] = useState<GamePhase>('inhale');
+  const [currentPhase, setCurrentPhase] = useState<GamePhase>("inhale");
   const [cycleCount, setCycleCount] = useState(0);
   const [timeRemaining, setTimeRemaining] = useState(4);
   const [totalTime, setTotalTime] = useState(0);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
-  
+
   // 4-7-8 breathing pattern (4 seconds inhale, 7 seconds hold, 8 seconds exhale)
   const breathingPattern = {
     inhale: 4,
     hold: 7,
     exhale: 8,
-    pause: 1
+    pause: 1,
   };
 
   const phaseInstructions = {
     inhale: "Breathe in slowly...",
     hold: "Hold your breath...",
     exhale: "Breathe out gently...",
-    pause: "Relax..."
+    pause: "Relax...",
   };
 
   const phaseColors = {
     inhale: "from-wellness-blue to-wellness-light-blue",
-    hold: "from-wellness-green to-wellness-light-green", 
+    hold: "from-wellness-green to-wellness-light-green",
     exhale: "from-wellness-purple to-purple-300",
-    pause: "from-gray-400 to-gray-300"
+    pause: "from-gray-400 to-gray-300",
   };
 
   useEffect(() => {
@@ -54,21 +47,21 @@ export default function RelaxationGame({ onComplete }: RelaxationGameProps) {
           if (prev <= 1) {
             // Move to next phase
             setCurrentPhase((currentPhase) => {
-              const phases: GamePhase[] = ['inhale', 'hold', 'exhale', 'pause'];
+              const phases: GamePhase[] = ["inhale", "hold", "exhale", "pause"];
               const currentIndex = phases.indexOf(currentPhase);
               const nextPhase = phases[(currentIndex + 1) % phases.length];
-              
-              if (nextPhase === 'inhale') {
-                setCycleCount(count => count + 1);
+
+              if (nextPhase === "inhale") {
+                setCycleCount((count) => count + 1);
               }
-              
+
               return nextPhase;
             });
             return breathingPattern[getNextPhase()];
           }
           return prev - 1;
         });
-        setTotalTime(prev => prev + 1);
+        setTotalTime((prev) => prev + 1);
       }, 1000);
     } else {
       if (intervalRef.current) {
@@ -84,7 +77,7 @@ export default function RelaxationGame({ onComplete }: RelaxationGameProps) {
   }, [isPlaying, currentPhase]);
 
   const getNextPhase = (): GamePhase => {
-    const phases: GamePhase[] = ['inhale', 'hold', 'exhale', 'pause'];
+    const phases: GamePhase[] = ["inhale", "hold", "exhale", "pause"];
     const currentIndex = phases.indexOf(currentPhase);
     return phases[(currentIndex + 1) % phases.length];
   };
@@ -95,7 +88,7 @@ export default function RelaxationGame({ onComplete }: RelaxationGameProps) {
 
   const resetGame = () => {
     setIsPlaying(false);
-    setCurrentPhase('inhale');
+    setCurrentPhase("inhale");
     setCycleCount(0);
     setTimeRemaining(4);
     setTotalTime(0);
@@ -112,13 +105,13 @@ export default function RelaxationGame({ onComplete }: RelaxationGameProps) {
       key={i}
       className={cn(
         "absolute w-2 h-2 bg-white/30 rounded-full animate-pulse",
-        isPlaying && "animate-bounce"
+        isPlaying && "animate-bounce",
       )}
       style={{
         left: `${20 + i * 15}%`,
         top: `${30 + (i % 2) * 20}%`,
         animationDelay: `${i * 0.5}s`,
-        animationDuration: `${2 + i * 0.3}s`
+        animationDuration: `${2 + i * 0.3}s`,
       }}
     />
   ));
@@ -134,20 +127,22 @@ export default function RelaxationGame({ onComplete }: RelaxationGameProps) {
       <CardContent className="text-center space-y-6">
         {/* Breathing Circle Animation */}
         <div className="relative w-48 h-48 mx-auto">
-          <div 
+          <div
             className={cn(
               "absolute inset-0 rounded-full bg-gradient-to-br transition-all duration-1000 flex items-center justify-center shadow-lg",
               phaseColors[currentPhase],
-              isPlaying && currentPhase === 'inhale' && "scale-110",
-              isPlaying && currentPhase === 'hold' && "scale-110",
-              isPlaying && currentPhase === 'exhale' && "scale-90",
-              isPlaying && currentPhase === 'pause' && "scale-100"
+              isPlaying && currentPhase === "inhale" && "scale-110",
+              isPlaying && currentPhase === "hold" && "scale-110",
+              isPlaying && currentPhase === "exhale" && "scale-90",
+              isPlaying && currentPhase === "pause" && "scale-100",
             )}
           >
             {particles}
             <div className="text-white text-center">
               <div className="text-3xl font-bold">{timeRemaining}</div>
-              <div className="text-sm opacity-90">{phaseInstructions[currentPhase]}</div>
+              <div className="text-sm opacity-90">
+                {phaseInstructions[currentPhase]}
+              </div>
             </div>
           </div>
         </div>
@@ -160,7 +155,10 @@ export default function RelaxationGame({ onComplete }: RelaxationGameProps) {
           </div>
           <div className="flex justify-between text-sm text-gray-600">
             <span>Time:</span>
-            <span className="font-medium">{Math.floor(totalTime / 60)}:{(totalTime % 60).toString().padStart(2, '0')}</span>
+            <span className="font-medium">
+              {Math.floor(totalTime / 60)}:
+              {(totalTime % 60).toString().padStart(2, "0")}
+            </span>
           </div>
         </div>
 
@@ -170,13 +168,19 @@ export default function RelaxationGame({ onComplete }: RelaxationGameProps) {
             onClick={toggleGame}
             className={cn(
               "flex items-center space-x-2",
-              isPlaying ? "bg-wellness-orange hover:bg-wellness-orange/90" : "bg-wellness-green hover:bg-wellness-green/90"
+              isPlaying
+                ? "bg-wellness-orange hover:bg-wellness-orange/90"
+                : "bg-wellness-green hover:bg-wellness-green/90",
             )}
           >
-            {isPlaying ? <Pause className="w-4 h-4" /> : <Play className="w-4 h-4" />}
-            <span>{isPlaying ? 'Pause' : 'Start'}</span>
+            {isPlaying ? (
+              <Pause className="w-4 h-4" />
+            ) : (
+              <Play className="w-4 h-4" />
+            )}
+            <span>{isPlaying ? "Pause" : "Start"}</span>
           </Button>
-          
+
           <Button
             onClick={resetGame}
             variant="outline"
@@ -192,8 +196,9 @@ export default function RelaxationGame({ onComplete }: RelaxationGameProps) {
           <div className="bg-wellness-light-green p-4 rounded-lg text-center animate-fade-in">
             <Sparkles className="w-6 h-6 text-wellness-green mx-auto mb-2" />
             <p className="text-sm text-wellness-green font-medium">
-              Great job! You've completed {cycleCount} breathing cycles. 
-              {cycleCount >= 5 && " You're doing amazing - your mind should feel calmer now! 🌟"}
+              Great job! You've completed {cycleCount} breathing cycles.
+              {cycleCount >= 5 &&
+                " You're doing amazing - your mind should feel calmer now! 🌟"}
             </p>
             {cycleCount >= 5 && (
               <Button

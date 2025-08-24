@@ -14,13 +14,20 @@ import {
   CheckCircle,
   AlertCircle,
   Heart,
-  BarChart3
+  BarChart3,
 } from "lucide-react";
-import { WeeklyProgressChart, WaterIntakeChart } from "@/components/charts/ProgressCharts";
+import {
+  WeeklyProgressChart,
+  WaterIntakeChart,
+} from "@/components/charts/ProgressCharts";
 import WellnessChatbot from "@/components/WellnessChatbot";
 import SmartNotifications from "@/components/SmartNotifications";
 import { useState, useEffect } from "react";
-import { apiService, Quote as QuoteType, WeatherData } from "@/services/apiService";
+import {
+  apiService,
+  Quote as QuoteType,
+  WeatherData,
+} from "@/services/apiService";
 
 // Mock data - in a real app this would come from APIs and user data
 const mockData = {
@@ -29,19 +36,19 @@ const mockData = {
     water: { current: 6, target: 8, unit: "glasses" },
     exercise: { current: 30, target: 45, unit: "minutes" },
     sleep: { current: 7.5, target: 8, unit: "hours" },
-    meditation: { current: 10, target: 15, unit: "minutes" }
+    meditation: { current: 10, target: 15, unit: "minutes" },
   },
   weather: {
     condition: "sunny",
     temperature: 72,
     suggestion: "Perfect weather for outdoor activities!",
     description: "Sunny and warm",
-    icon: "☀️"
+    icon: "☀️",
   },
   quote: {
     text: "The groundwork for all happiness is good health.",
-    author: "Leigh Hunt"
-  }
+    author: "Leigh Hunt",
+  },
 };
 
 export default function Dashboard() {
@@ -66,7 +73,7 @@ export default function Dashboard() {
         const newQuote = await apiService.getQuote();
         setQuote(newQuote);
       } catch (error) {
-        console.error('Failed to fetch quote:', error);
+        console.error("Failed to fetch quote:", error);
       } finally {
         setIsLoadingQuote(false);
       }
@@ -79,7 +86,7 @@ export default function Dashboard() {
         const newWeather = await apiService.getWeather();
         setWeather(newWeather);
       } catch (error) {
-        console.error('Failed to fetch weather:', error);
+        console.error("Failed to fetch weather:", error);
       } finally {
         setIsLoadingWeather(false);
       }
@@ -106,22 +113,22 @@ export default function Dashboard() {
       color: "text-wellness-blue",
       title: "Hydration Reminder",
       message: "You're 2 glasses away from your water goal! Drink up! 💧",
-      action: "Log Water"
+      action: "Log Water",
     },
     {
       icon: Sun,
       color: "text-wellness-orange",
       title: "Weather Alert",
       message: weather.suggestion + " Consider a 20-minute walk.",
-      action: "Plan Activity"
+      action: "Plan Activity",
     },
     {
       icon: Moon,
       color: "text-wellness-purple",
       title: "Sleep Preparation",
       message: "Wind down in 2 hours for optimal sleep quality.",
-      action: "Set Reminder"
-    }
+      action: "Set Reminder",
+    },
   ];
 
   return (
@@ -142,7 +149,9 @@ export default function Dashboard() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
           <Card>
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">Water Intake</CardTitle>
+              <CardTitle className="text-sm font-medium">
+                Water Intake
+              </CardTitle>
               <Droplets className="h-4 w-4 text-wellness-blue" />
             </CardHeader>
             <CardContent>
@@ -150,8 +159,11 @@ export default function Dashboard() {
                 {mockData.today.water.current}/{mockData.today.water.target}
               </div>
               <p className="text-xs text-muted-foreground">glasses today</p>
-              <Progress 
-                value={getProgressPercentage(mockData.today.water.current, mockData.today.water.target)} 
+              <Progress
+                value={getProgressPercentage(
+                  mockData.today.water.current,
+                  mockData.today.water.target,
+                )}
                 className="mt-2"
               />
             </CardContent>
@@ -164,11 +176,15 @@ export default function Dashboard() {
             </CardHeader>
             <CardContent>
               <div className="text-2xl font-bold">
-                {mockData.today.exercise.current}/{mockData.today.exercise.target}
+                {mockData.today.exercise.current}/
+                {mockData.today.exercise.target}
               </div>
               <p className="text-xs text-muted-foreground">minutes today</p>
-              <Progress 
-                value={getProgressPercentage(mockData.today.exercise.current, mockData.today.exercise.target)} 
+              <Progress
+                value={getProgressPercentage(
+                  mockData.today.exercise.current,
+                  mockData.today.exercise.target,
+                )}
                 className="mt-2"
               />
             </CardContent>
@@ -184,8 +200,11 @@ export default function Dashboard() {
                 {mockData.today.sleep.current}/{mockData.today.sleep.target}
               </div>
               <p className="text-xs text-muted-foreground">hours last night</p>
-              <Progress 
-                value={getProgressPercentage(mockData.today.sleep.current, mockData.today.sleep.target)} 
+              <Progress
+                value={getProgressPercentage(
+                  mockData.today.sleep.current,
+                  mockData.today.sleep.target,
+                )}
                 className="mt-2"
               />
             </CardContent>
@@ -198,11 +217,15 @@ export default function Dashboard() {
             </CardHeader>
             <CardContent>
               <div className="text-2xl font-bold">
-                {mockData.today.meditation.current}/{mockData.today.meditation.target}
+                {mockData.today.meditation.current}/
+                {mockData.today.meditation.target}
               </div>
               <p className="text-xs text-muted-foreground">minutes today</p>
-              <Progress 
-                value={getProgressPercentage(mockData.today.meditation.current, mockData.today.meditation.target)} 
+              <Progress
+                value={getProgressPercentage(
+                  mockData.today.meditation.current,
+                  mockData.today.meditation.target,
+                )}
                 className="mt-2"
               />
             </CardContent>
@@ -220,11 +243,18 @@ export default function Dashboard() {
             </CardHeader>
             <CardContent className="space-y-4">
               {suggestions.map((suggestion, index) => (
-                <div key={index} className="flex items-start space-x-3 p-3 bg-gray-50 rounded-lg">
-                  <suggestion.icon className={`w-5 h-5 mt-0.5 ${suggestion.color}`} />
+                <div
+                  key={index}
+                  className="flex items-start space-x-3 p-3 bg-gray-50 rounded-lg"
+                >
+                  <suggestion.icon
+                    className={`w-5 h-5 mt-0.5 ${suggestion.color}`}
+                  />
                   <div className="flex-1">
                     <h4 className="font-medium text-sm">{suggestion.title}</h4>
-                    <p className="text-sm text-gray-600 mt-1">{suggestion.message}</p>
+                    <p className="text-sm text-gray-600 mt-1">
+                      {suggestion.message}
+                    </p>
                     <Button size="sm" variant="outline" className="mt-2">
                       {suggestion.action}
                     </Button>
@@ -284,8 +314,12 @@ export default function Dashboard() {
                       <div className="flex items-center space-x-2">
                         <span className="text-2xl">{weather.icon}</span>
                         <div>
-                          <p className="font-medium capitalize">{weather.description}</p>
-                          <p className="text-sm text-gray-600">{weather.temperature}°F</p>
+                          <p className="font-medium capitalize">
+                            {weather.description}
+                          </p>
+                          <p className="text-sm text-gray-600">
+                            {weather.temperature}°F
+                          </p>
                         </div>
                       </div>
                       <CheckCircle className="w-6 h-6 text-wellness-green" />
@@ -340,19 +374,31 @@ export default function Dashboard() {
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-              <Button variant="outline" className="h-20 flex flex-col items-center justify-center">
+              <Button
+                variant="outline"
+                className="h-20 flex flex-col items-center justify-center"
+              >
                 <Droplets className="w-6 h-6 mb-2 text-wellness-blue" />
                 <span>Log Water</span>
               </Button>
-              <Button variant="outline" className="h-20 flex flex-col items-center justify-center">
+              <Button
+                variant="outline"
+                className="h-20 flex flex-col items-center justify-center"
+              >
                 <Activity className="w-6 h-6 mb-2 text-wellness-green" />
                 <span>Log Exercise</span>
               </Button>
-              <Button variant="outline" className="h-20 flex flex-col items-center justify-center">
+              <Button
+                variant="outline"
+                className="h-20 flex flex-col items-center justify-center"
+              >
                 <Heart className="w-6 h-6 mb-2 text-wellness-orange" />
                 <span>Log Mood</span>
               </Button>
-              <Button variant="outline" className="h-20 flex flex-col items-center justify-center">
+              <Button
+                variant="outline"
+                className="h-20 flex flex-col items-center justify-center"
+              >
                 <Moon className="w-6 h-6 mb-2 text-wellness-purple" />
                 <span>Log Sleep</span>
               </Button>
@@ -364,7 +410,7 @@ export default function Dashboard() {
         <SmartNotifications
           userHabits={mockData.today}
           onActionClick={(action) => {
-            console.log('Notification action clicked:', action);
+            console.log("Notification action clicked:", action);
             // Here you could navigate to different pages or trigger actions
           }}
         />

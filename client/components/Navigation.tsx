@@ -7,7 +7,7 @@ import {
   Heart,
   Menu,
   X,
-  User
+  User,
 } from "lucide-react";
 import { useState } from "react";
 
@@ -33,7 +33,9 @@ export default function Navigation() {
                 <div className="w-8 h-8 bg-gradient-to-br from-wellness-green to-wellness-blue rounded-lg flex items-center justify-center">
                   <Heart className="w-5 h-5 text-white" />
                 </div>
-                <span className="ml-2 text-xl font-bold text-wellness-green">WellnessTracker</span>
+                <span className="ml-2 text-xl font-bold text-wellness-green">
+                  WellnessTracker
+                </span>
               </div>
               <div className="ml-10 flex space-x-8">
                 {navigation.map((item) => {
@@ -46,7 +48,7 @@ export default function Navigation() {
                         "inline-flex items-center px-3 py-2 text-sm font-medium rounded-md transition-colors",
                         isActive
                           ? "bg-wellness-green text-white"
-                          : "text-gray-600 hover:text-wellness-green hover:bg-wellness-light-green/30"
+                          : "text-gray-600 hover:text-wellness-green hover:bg-wellness-light-green/30",
                       )}
                     >
                       <item.icon className="w-4 h-4 mr-2" />
@@ -77,7 +79,9 @@ export default function Navigation() {
               <div className="w-8 h-8 bg-gradient-to-br from-wellness-green to-wellness-blue rounded-lg flex items-center justify-center">
                 <Heart className="w-5 h-5 text-white" />
               </div>
-              <span className="ml-2 text-xl font-bold text-wellness-green">WellnessTracker</span>
+              <span className="ml-2 text-xl font-bold text-wellness-green">
+                WellnessTracker
+              </span>
             </div>
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -107,7 +111,7 @@ export default function Navigation() {
                       "flex items-center px-3 py-2 text-base font-medium rounded-md transition-colors",
                       isActive
                         ? "bg-wellness-green text-white"
-                        : "text-gray-600 hover:text-wellness-green hover:bg-wellness-light-green/30"
+                        : "text-gray-600 hover:text-wellness-green hover:bg-wellness-light-green/30",
                     )}
                   >
                     <item.icon className="w-5 h-5 mr-3" />

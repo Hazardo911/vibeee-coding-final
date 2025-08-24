@@ -2,7 +2,7 @@ import Navigation from "@/components/Navigation";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { 
+import {
   Apple,
   Droplets,
   Activity,
@@ -11,7 +11,7 @@ import {
   Calendar,
   Heart,
   Clock,
-  Zap
+  Zap,
 } from "lucide-react";
 import { useState, useEffect } from "react";
 import { apiService, NutritionTip } from "@/services/apiService";
@@ -27,7 +27,7 @@ export default function Tips() {
       const tips = await apiService.getNutritionTips();
       setNutritionTips(tips);
     } catch (error) {
-      console.error('Failed to fetch nutrition tips:', error);
+      console.error("Failed to fetch nutrition tips:", error);
     } finally {
       setIsLoading(false);
     }
@@ -39,11 +39,11 @@ export default function Tips() {
 
   const getIconForType = (type: string) => {
     switch (type) {
-      case 'hydration':
+      case "hydration":
         return Droplets;
-      case 'nutrition':
+      case "nutrition":
         return Apple;
-      case 'exercise':
+      case "exercise":
         return Activity;
       default:
         return Lightbulb;
@@ -52,27 +52,27 @@ export default function Tips() {
 
   const getColorForType = (type: string) => {
     switch (type) {
-      case 'hydration':
-        return 'text-wellness-blue';
-      case 'nutrition':
-        return 'text-wellness-green';
-      case 'exercise':
-        return 'text-wellness-orange';
+      case "hydration":
+        return "text-wellness-blue";
+      case "nutrition":
+        return "text-wellness-green";
+      case "exercise":
+        return "text-wellness-orange";
       default:
-        return 'text-wellness-purple';
+        return "text-wellness-purple";
     }
   };
 
   const getBadgeColorForType = (type: string) => {
     switch (type) {
-      case 'hydration':
-        return 'bg-wellness-light-blue';
-      case 'nutrition':
-        return 'bg-wellness-light-green';
-      case 'exercise':
-        return 'bg-orange-100 text-orange-800';
+      case "hydration":
+        return "bg-wellness-light-blue";
+      case "nutrition":
+        return "bg-wellness-light-green";
+      case "exercise":
+        return "bg-orange-100 text-orange-800";
       default:
-        return 'bg-purple-100 text-purple-800';
+        return "bg-purple-100 text-purple-800";
     }
   };
 
@@ -81,44 +81,48 @@ export default function Tips() {
       await apiService.addToCalendar({
         title: `Wellness Reminder: ${tip.title}`,
         time: new Date(Date.now() + 60 * 60 * 1000).toISOString(), // 1 hour from now
-        type: tip.type
+        type: tip.type,
       });
-      alert('Reminder added to calendar successfully!');
+      alert("Reminder added to calendar successfully!");
     } catch (error) {
-      console.error('Failed to add to calendar:', error);
-      alert('Failed to add reminder to calendar');
+      console.error("Failed to add to calendar:", error);
+      alert("Failed to add reminder to calendar");
     }
   };
 
   const staticTips = [
     {
       title: "Morning Hydration",
-      message: "Start your day with a glass of water to kickstart your metabolism and rehydrate after sleep.",
+      message:
+        "Start your day with a glass of water to kickstart your metabolism and rehydrate after sleep.",
       icon: Droplets,
       color: "text-wellness-blue",
-      badge: "Daily Habit"
+      badge: "Daily Habit",
     },
     {
       title: "Move Every Hour",
-      message: "Set a reminder to stand and move for 2-3 minutes every hour to improve circulation and energy.",
+      message:
+        "Set a reminder to stand and move for 2-3 minutes every hour to improve circulation and energy.",
       icon: Activity,
       color: "text-wellness-green",
-      badge: "Productivity"
+      badge: "Productivity",
     },
     {
       title: "Deep Breathing",
-      message: "Practice 4-7-8 breathing (inhale 4, hold 7, exhale 8) to reduce stress and improve focus.",
+      message:
+        "Practice 4-7-8 breathing (inhale 4, hold 7, exhale 8) to reduce stress and improve focus.",
       icon: Heart,
       color: "text-wellness-orange",
-      badge: "Mindfulness"
+      badge: "Mindfulness",
     },
     {
       title: "Sleep Schedule",
-      message: "Go to bed and wake up at the same time every day to regulate your circadian rhythm.",
+      message:
+        "Go to bed and wake up at the same time every day to regulate your circadian rhythm.",
       icon: Clock,
       color: "text-wellness-purple",
-      badge: "Sleep Health"
-    }
+      badge: "Sleep Health",
+    },
   ];
 
   return (
@@ -128,18 +132,22 @@ export default function Tips() {
         {/* Header */}
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-8">
           <div>
-            <h1 className="text-3xl font-bold text-wellness-green mb-2">Wellness Tips</h1>
+            <h1 className="text-3xl font-bold text-wellness-green mb-2">
+              Wellness Tips
+            </h1>
             <p className="text-gray-600">
               Personalized recommendations for your health and wellness journey
             </p>
           </div>
-          <Button 
-            onClick={fetchTips} 
+          <Button
+            onClick={fetchTips}
             disabled={isLoading}
             className="mt-4 sm:mt-0"
           >
-            <RefreshCw className={cn("w-4 h-4 mr-2", isLoading && "animate-spin")} />
-            {isLoading ? 'Loading...' : 'Refresh Tips'}
+            <RefreshCw
+              className={cn("w-4 h-4 mr-2", isLoading && "animate-spin")}
+            />
+            {isLoading ? "Loading..." : "Refresh Tips"}
           </Button>
         </div>
 
@@ -166,10 +174,18 @@ export default function Tips() {
                 {nutritionTips.map((tip, index) => {
                   const Icon = getIconForType(tip.type);
                   return (
-                    <div key={index} className="p-4 bg-gray-50 rounded-lg border border-gray-200">
+                    <div
+                      key={index}
+                      className="p-4 bg-gray-50 rounded-lg border border-gray-200"
+                    >
                       <div className="flex items-start justify-between">
                         <div className="flex items-start space-x-3">
-                          <Icon className={cn("w-5 h-5 mt-0.5", getColorForType(tip.type))} />
+                          <Icon
+                            className={cn(
+                              "w-5 h-5 mt-0.5",
+                              getColorForType(tip.type),
+                            )}
+                          />
                           <div className="flex-1">
                             <div className="flex items-center space-x-2 mb-1">
                               <h3 className="font-semibold">{tip.title}</h3>
@@ -182,7 +198,9 @@ export default function Tips() {
                                 </Badge>
                               )}
                             </div>
-                            <p className="text-gray-700 text-sm">{tip.message}</p>
+                            <p className="text-gray-700 text-sm">
+                              {tip.message}
+                            </p>
                           </div>
                         </div>
                         <Button
@@ -213,7 +231,10 @@ export default function Tips() {
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {staticTips.map((tip, index) => (
-                <div key={index} className="p-4 bg-white rounded-lg border border-gray-200 hover:shadow-md transition-shadow">
+                <div
+                  key={index}
+                  className="p-4 bg-white rounded-lg border border-gray-200 hover:shadow-md transition-shadow"
+                >
                   <div className="flex items-start space-x-3">
                     <div className="p-2 bg-gray-50 rounded-lg">
                       <tip.icon className={cn("w-5 h-5", tip.color)} />
@@ -228,11 +249,13 @@ export default function Tips() {
                         variant="outline"
                         size="sm"
                         className="mt-3"
-                        onClick={() => addToCalendar({
-                          title: tip.title,
-                          message: tip.message,
-                          type: 'nutrition'
-                        })}
+                        onClick={() =>
+                          addToCalendar({
+                            title: tip.title,
+                            message: tip.message,
+                            type: "nutrition",
+                          })
+                        }
                       >
                         <Calendar className="w-4 h-4 mr-2" />
                         Set Reminder

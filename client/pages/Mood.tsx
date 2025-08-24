@@ -3,7 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
-import { 
+import {
   Heart,
   Smile,
   Frown,
@@ -13,7 +13,7 @@ import {
   TrendingUp,
   Calendar,
   BookOpen,
-  Activity
+  Activity,
 } from "lucide-react";
 import { useState, useEffect } from "react";
 import { apiService } from "@/services/apiService";
@@ -21,25 +21,73 @@ import { cn } from "@/lib/utils";
 import RelaxationGame from "@/components/RelaxationGame";
 
 const moods = [
-  { id: 'happy', label: 'Happy', icon: '😊', color: 'text-wellness-green', bgColor: 'bg-wellness-light-green' },
-  { id: 'sad', label: 'Sad', icon: '😢', color: 'text-blue-600', bgColor: 'bg-blue-100' },
-  { id: 'stressed', label: 'Stressed', icon: '😰', color: 'text-red-600', bgColor: 'bg-red-100' },
-  { id: 'energetic', label: 'Energetic', icon: '⚡', color: 'text-wellness-orange', bgColor: 'bg-orange-100' },
-  { id: 'tired', label: 'Tired', icon: '😴', color: 'text-gray-600', bgColor: 'bg-gray-100' },
-  { id: 'calm', label: 'Calm', icon: '😌', color: 'text-wellness-blue', bgColor: 'bg-wellness-light-blue' },
-  { id: 'anxious', label: 'Anxious', icon: '😟', color: 'text-yellow-600', bgColor: 'bg-yellow-100' },
-  { id: 'excited', label: 'Excited', icon: '🤩', color: 'text-wellness-purple', bgColor: 'bg-purple-100' }
+  {
+    id: "happy",
+    label: "Happy",
+    icon: "😊",
+    color: "text-wellness-green",
+    bgColor: "bg-wellness-light-green",
+  },
+  {
+    id: "sad",
+    label: "Sad",
+    icon: "😢",
+    color: "text-blue-600",
+    bgColor: "bg-blue-100",
+  },
+  {
+    id: "stressed",
+    label: "Stressed",
+    icon: "😰",
+    color: "text-red-600",
+    bgColor: "bg-red-100",
+  },
+  {
+    id: "energetic",
+    label: "Energetic",
+    icon: "⚡",
+    color: "text-wellness-orange",
+    bgColor: "bg-orange-100",
+  },
+  {
+    id: "tired",
+    label: "Tired",
+    icon: "😴",
+    color: "text-gray-600",
+    bgColor: "bg-gray-100",
+  },
+  {
+    id: "calm",
+    label: "Calm",
+    icon: "😌",
+    color: "text-wellness-blue",
+    bgColor: "bg-wellness-light-blue",
+  },
+  {
+    id: "anxious",
+    label: "Anxious",
+    icon: "😟",
+    color: "text-yellow-600",
+    bgColor: "bg-yellow-100",
+  },
+  {
+    id: "excited",
+    label: "Excited",
+    icon: "🤩",
+    color: "text-wellness-purple",
+    bgColor: "bg-purple-100",
+  },
 ];
 
 // Mock mood history data
 const moodHistory = [
-  { date: 'Mon', mood: 'happy', energy: 80 },
-  { date: 'Tue', mood: 'tired', energy: 50 },
-  { date: 'Wed', mood: 'stressed', energy: 40 },
-  { date: 'Thu', mood: 'calm', energy: 70 },
-  { date: 'Fri', mood: 'energetic', energy: 90 },
-  { date: 'Sat', mood: 'happy', energy: 85 },
-  { date: 'Sun', mood: 'calm', energy: 75 }
+  { date: "Mon", mood: "happy", energy: 80 },
+  { date: "Tue", mood: "tired", energy: 50 },
+  { date: "Wed", mood: "stressed", energy: 40 },
+  { date: "Thu", mood: "calm", energy: 70 },
+  { date: "Fri", mood: "energetic", energy: 90 },
+  { date: "Sat", mood: "happy", energy: 85 },
+  { date: "Sun", mood: "calm", energy: 75 },
 ];
 
 export default function Mood() {
@@ -60,10 +108,10 @@ export default function Mood() {
       setMoodLogged(true);
 
       // Show relaxation game for negative moods
-      const negativeMoods = ['sad', 'stressed', 'anxious'];
+      const negativeMoods = ["sad", "stressed", "anxious"];
       setShowRelaxationGame(negativeMoods.includes(selectedMood));
     } catch (error) {
-      console.error('Failed to get mood suggestions:', error);
+      console.error("Failed to get mood suggestions:", error);
     } finally {
       setIsLoadingSuggestions(false);
     }
@@ -78,14 +126,15 @@ export default function Mood() {
   };
 
   const getMoodEmoji = (moodId: string) => {
-    return moods.find(m => m.id === moodId)?.icon || '😐';
+    return moods.find((m) => m.id === moodId)?.icon || "😐";
   };
 
   const getMoodColor = (moodId: string) => {
-    return moods.find(m => m.id === moodId)?.color || 'text-gray-600';
+    return moods.find((m) => m.id === moodId)?.color || "text-gray-600";
   };
 
-  const averageEnergy = moodHistory.reduce((sum, day) => sum + day.energy, 0) / moodHistory.length;
+  const averageEnergy =
+    moodHistory.reduce((sum, day) => sum + day.energy, 0) / moodHistory.length;
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-wellness-light-green/20 to-wellness-light-blue/20">
@@ -93,7 +142,9 @@ export default function Mood() {
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Header */}
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-wellness-green mb-2">Mood Tracker</h1>
+          <h1 className="text-3xl font-bold text-wellness-green mb-2">
+            Mood Tracker
+          </h1>
           <p className="text-gray-600">
             Track your emotional wellness and receive personalized suggestions
           </p>
@@ -116,7 +167,7 @@ export default function Mood() {
                     variant={selectedMood === mood.id ? "default" : "outline"}
                     className={cn(
                       "h-16 flex flex-col items-center justify-center transition-all",
-                      selectedMood === mood.id && mood.bgColor
+                      selectedMood === mood.id && mood.bgColor,
                     )}
                     onClick={() => setSelectedMood(mood.id)}
                   >
@@ -130,7 +181,9 @@ export default function Mood() {
               <div className="mb-6">
                 <div className="flex items-center justify-between mb-2">
                   <label className="text-sm font-medium">Energy Level</label>
-                  <span className="text-sm text-gray-600">{currentEnergy}%</span>
+                  <span className="text-sm text-gray-600">
+                    {currentEnergy}%
+                  </span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <Battery className="w-4 h-4 text-gray-400" />
@@ -147,17 +200,19 @@ export default function Mood() {
                 <Progress value={currentEnergy} className="mt-2" />
               </div>
 
-              <Button 
-                onClick={logMood} 
+              <Button
+                onClick={logMood}
                 disabled={!selectedMood || isLoadingSuggestions}
                 className="w-full"
               >
-                {isLoadingSuggestions ? 'Getting suggestions...' : 'Log Mood & Get Tips'}
+                {isLoadingSuggestions
+                  ? "Getting suggestions..."
+                  : "Log Mood & Get Tips"}
               </Button>
 
               {moodLogged && (
-                <Button 
-                  variant="outline" 
+                <Button
+                  variant="outline"
                   onClick={resetMoodLog}
                   className="w-full mt-2"
                 >
@@ -180,16 +235,21 @@ export default function Mood() {
                 <div className="space-y-4">
                   <div className="flex items-center space-x-2 mb-4">
                     <span className="text-2xl">
-                      {selectedMood ? getMoodEmoji(selectedMood) : '😐'}
+                      {selectedMood ? getMoodEmoji(selectedMood) : "😐"}
                     </span>
                     <div>
                       <p className="font-medium">
-                        Feeling {selectedMood ? moods.find(m => m.id === selectedMood)?.label : 'neutral'}
+                        Feeling{" "}
+                        {selectedMood
+                          ? moods.find((m) => m.id === selectedMood)?.label
+                          : "neutral"}
                       </p>
-                      <p className="text-sm text-gray-600">Energy: {currentEnergy}%</p>
+                      <p className="text-sm text-gray-600">
+                        Energy: {currentEnergy}%
+                      </p>
                     </div>
                   </div>
-                  
+
                   {/* Relaxation Game for negative moods */}
                   {showRelaxationGame && (
                     <div className="mb-6">
@@ -201,21 +261,27 @@ export default function Mood() {
                           </h4>
                         </div>
                         <p className="text-sm text-gray-700 mb-3">
-                          When we're feeling {selectedMood}, breathing exercises can help calm our mind and body.
-                          Let's try a guided breathing session together.
+                          When we're feeling {selectedMood}, breathing exercises
+                          can help calm our mind and body. Let's try a guided
+                          breathing session together.
                         </p>
                       </div>
                       <RelaxationGame
                         onComplete={() => {
                           // Optional: Add completion feedback
-                          alert("Great job! 🌟 You've completed the relaxation exercise. How are you feeling now?");
+                          alert(
+                            "Great job! 🌟 You've completed the relaxation exercise. How are you feeling now?",
+                          );
                         }}
                       />
                     </div>
                   )}
 
                   {suggestions.map((suggestion, index) => (
-                    <div key={index} className="p-3 bg-gray-50 rounded-lg border border-gray-200">
+                    <div
+                      key={index}
+                      className="p-3 bg-gray-50 rounded-lg border border-gray-200"
+                    >
                       <p className="text-sm text-gray-700">{suggestion}</p>
                     </div>
                   ))}
@@ -223,22 +289,31 @@ export default function Mood() {
               ) : (
                 <div className="text-center text-gray-500 py-8">
                   <Heart className="w-12 h-12 mx-auto mb-4 text-gray-300" />
-                  <p className="mb-4">Select your mood and energy level to get personalized wellness suggestions.</p>
+                  <p className="mb-4">
+                    Select your mood and energy level to get personalized
+                    wellness suggestions.
+                  </p>
                   <div className="mt-6">
-                    <p className="text-sm text-gray-600 mb-3">Need a moment to relax?</p>
+                    <p className="text-sm text-gray-600 mb-3">
+                      Need a moment to relax?
+                    </p>
                     <Button
                       variant="outline"
                       onClick={() => setShowRelaxationGame(!showRelaxationGame)}
                       className="flex items-center space-x-2"
                     >
                       <Heart className="w-4 h-4" />
-                      <span>{showRelaxationGame ? 'Hide' : 'Try'} Breathing Exercise</span>
+                      <span>
+                        {showRelaxationGame ? "Hide" : "Try"} Breathing Exercise
+                      </span>
                     </Button>
                     {showRelaxationGame && (
                       <div className="mt-6">
                         <RelaxationGame
                           onComplete={() => {
-                            alert("Wonderful! 🌟 You've completed the breathing exercise. Take a moment to notice how you feel.");
+                            alert(
+                              "Wonderful! 🌟 You've completed the breathing exercise. Take a moment to notice how you feel.",
+                            );
                           }}
                         />
                       </div>
@@ -280,7 +355,9 @@ export default function Mood() {
             {/* Weekly Summary */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-4 border-t">
               <div className="text-center">
-                <p className="text-2xl font-bold text-wellness-green">{Math.round(averageEnergy)}%</p>
+                <p className="text-2xl font-bold text-wellness-green">
+                  {Math.round(averageEnergy)}%
+                </p>
                 <p className="text-sm text-gray-600">Average Energy</p>
               </div>
               <div className="text-center">
@@ -310,19 +387,25 @@ export default function Mood() {
                   <div className="w-8 h-8 bg-wellness-light-green rounded-lg flex items-center justify-center">
                     <Activity className="w-4 h-4 text-wellness-green" />
                   </div>
-                  <span className="text-sm">10 minutes of exercise can boost mood for up to 2 hours</span>
+                  <span className="text-sm">
+                    10 minutes of exercise can boost mood for up to 2 hours
+                  </span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <div className="w-8 h-8 bg-wellness-light-blue rounded-lg flex items-center justify-center">
                     <Heart className="w-4 h-4 text-wellness-blue" />
                   </div>
-                  <span className="text-sm">Deep breathing for 5 minutes reduces stress hormones</span>
+                  <span className="text-sm">
+                    Deep breathing for 5 minutes reduces stress hormones
+                  </span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <div className="w-8 h-8 bg-orange-100 rounded-lg flex items-center justify-center">
                     <Smile className="w-4 h-4 text-wellness-orange" />
                   </div>
-                  <span className="text-sm">Gratitude journaling improves overall well-being</span>
+                  <span className="text-sm">
+                    Gratitude journaling improves overall well-being
+                  </span>
                 </div>
               </div>
             </CardContent>
@@ -339,7 +422,9 @@ export default function Mood() {
               <div className="space-y-3">
                 <div className="flex justify-between items-center">
                   <span className="text-sm">Best time of day</span>
-                  <Badge className="bg-wellness-light-green text-wellness-green">Morning</Badge>
+                  <Badge className="bg-wellness-light-green text-wellness-green">
+                    Morning
+                  </Badge>
                 </div>
                 <div className="flex justify-between items-center">
                   <span className="text-sm">Energy dip</span>
@@ -347,7 +432,9 @@ export default function Mood() {
                 </div>
                 <div className="flex justify-between items-center">
                   <span className="text-sm">Sleep correlation</span>
-                  <Badge className="bg-wellness-light-blue text-wellness-blue">Strong</Badge>
+                  <Badge className="bg-wellness-light-blue text-wellness-blue">
+                    Strong
+                  </Badge>
                 </div>
                 <div className="flex justify-between items-center">
                   <span className="text-sm">Exercise impact</span>

@@ -4,7 +4,13 @@ import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 import {
   Droplets,
   Activity,
@@ -18,9 +24,12 @@ import {
   Calendar,
   Target,
   Clock,
-  BarChart3
+  BarChart3,
 } from "lucide-react";
-import { StreakChart, HabitCompletionChart } from "@/components/charts/ProgressCharts";
+import {
+  StreakChart,
+  HabitCompletionChart,
+} from "@/components/charts/ProgressCharts";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
 
@@ -37,7 +46,7 @@ const initialHabits = [
     unit: "glasses",
     streak: 7,
     completed: false,
-    category: "Health"
+    category: "Health",
   },
   {
     id: 2,
@@ -50,7 +59,7 @@ const initialHabits = [
     unit: "minutes",
     streak: 5,
     completed: false,
-    category: "Fitness"
+    category: "Fitness",
   },
   {
     id: 3,
@@ -63,7 +72,7 @@ const initialHabits = [
     unit: "minutes",
     streak: 12,
     completed: true,
-    category: "Mindfulness"
+    category: "Mindfulness",
   },
   {
     id: 4,
@@ -76,8 +85,8 @@ const initialHabits = [
     unit: "hours",
     streak: 3,
     completed: true,
-    category: "Sleep"
-  }
+    category: "Sleep",
+  },
 ];
 
 export default function Habits() {
@@ -87,32 +96,38 @@ export default function Habits() {
     name: "",
     target: "",
     unit: "",
-    category: ""
+    category: "",
   });
 
   const toggleHabit = (habitId: number) => {
-    setHabits(habits.map(habit => 
-      habit.id === habitId 
-        ? { 
-            ...habit, 
-            completed: !habit.completed,
-            current: habit.completed ? Math.max(0, habit.current - 1) : habit.target,
-            streak: habit.completed ? habit.streak : habit.streak + 1
-          }
-        : habit
-    ));
+    setHabits(
+      habits.map((habit) =>
+        habit.id === habitId
+          ? {
+              ...habit,
+              completed: !habit.completed,
+              current: habit.completed
+                ? Math.max(0, habit.current - 1)
+                : habit.target,
+              streak: habit.completed ? habit.streak : habit.streak + 1,
+            }
+          : habit,
+      ),
+    );
   };
 
   const updateHabitProgress = (habitId: number, value: number) => {
-    setHabits(habits.map(habit => 
-      habit.id === habitId 
-        ? { 
-            ...habit, 
-            current: Math.min(value, habit.target),
-            completed: value >= habit.target
-          }
-        : habit
-    ));
+    setHabits(
+      habits.map((habit) =>
+        habit.id === habitId
+          ? {
+              ...habit,
+              current: Math.min(value, habit.target),
+              completed: value >= habit.target,
+            }
+          : habit,
+      ),
+    );
   };
 
   const addHabit = () => {
@@ -128,7 +143,7 @@ export default function Habits() {
         unit: newHabit.unit,
         streak: 0,
         completed: false,
-        category: newHabit.category || "Custom"
+        category: newHabit.category || "Custom",
       };
       setHabits([...habits, habit]);
       setNewHabit({ name: "", target: "", unit: "", category: "" });
@@ -136,8 +151,9 @@ export default function Habits() {
     }
   };
 
-  const completedHabits = habits.filter(h => h.completed).length;
-  const totalProgress = habits.length > 0 ? (completedHabits / habits.length) * 100 : 0;
+  const completedHabits = habits.filter((h) => h.completed).length;
+  const totalProgress =
+    habits.length > 0 ? (completedHabits / habits.length) * 100 : 0;
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-wellness-light-green/20 to-wellness-light-blue/20">
@@ -146,7 +162,9 @@ export default function Habits() {
         {/* Header */}
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-8">
           <div>
-            <h1 className="text-3xl font-bold text-wellness-green mb-2">Daily Habits</h1>
+            <h1 className="text-3xl font-bold text-wellness-green mb-2">
+              Daily Habits
+            </h1>
             <p className="text-gray-600">
               Track your progress and build healthy routines
             </p>
@@ -169,7 +187,9 @@ export default function Habits() {
                     id="habit-name"
                     placeholder="e.g., Read for 30 minutes"
                     value={newHabit.name}
-                    onChange={(e) => setNewHabit({...newHabit, name: e.target.value})}
+                    onChange={(e) =>
+                      setNewHabit({ ...newHabit, name: e.target.value })
+                    }
                   />
                 </div>
                 <div className="grid grid-cols-2 gap-4">
@@ -180,7 +200,9 @@ export default function Habits() {
                       type="number"
                       placeholder="30"
                       value={newHabit.target}
-                      onChange={(e) => setNewHabit({...newHabit, target: e.target.value})}
+                      onChange={(e) =>
+                        setNewHabit({ ...newHabit, target: e.target.value })
+                      }
                     />
                   </div>
                   <div>
@@ -189,7 +211,9 @@ export default function Habits() {
                       id="habit-unit"
                       placeholder="minutes"
                       value={newHabit.unit}
-                      onChange={(e) => setNewHabit({...newHabit, unit: e.target.value})}
+                      onChange={(e) =>
+                        setNewHabit({ ...newHabit, unit: e.target.value })
+                      }
                     />
                   </div>
                 </div>
@@ -199,7 +223,9 @@ export default function Habits() {
                     id="habit-category"
                     placeholder="e.g., Learning"
                     value={newHabit.category}
-                    onChange={(e) => setNewHabit({...newHabit, category: e.target.value})}
+                    onChange={(e) =>
+                      setNewHabit({ ...newHabit, category: e.target.value })
+                    }
                   />
                 </div>
                 <Button onClick={addHabit} className="w-full">
@@ -221,12 +247,16 @@ export default function Habits() {
           <CardContent>
             <div className="flex items-center justify-between mb-4">
               <div>
-                <p className="text-2xl font-bold">{completedHabits}/{habits.length}</p>
+                <p className="text-2xl font-bold">
+                  {completedHabits}/{habits.length}
+                </p>
                 <p className="text-sm text-gray-600">habits completed</p>
               </div>
               <div className="text-right">
                 <p className="text-sm text-gray-600">Overall progress</p>
-                <p className="text-lg font-semibold">{Math.round(totalProgress)}%</p>
+                <p className="text-lg font-semibold">
+                  {Math.round(totalProgress)}%
+                </p>
               </div>
             </div>
             <Progress value={totalProgress} className="h-3" />
@@ -237,24 +267,26 @@ export default function Habits() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {habits.map((habit) => {
             const progressPercentage = (habit.current / habit.target) * 100;
-            
+
             return (
-              <Card key={habit.id} className={cn(
-                "transition-all duration-200 hover:shadow-md",
-                habit.completed ? "ring-2 ring-wellness-green/20" : ""
-              )}>
+              <Card
+                key={habit.id}
+                className={cn(
+                  "transition-all duration-200 hover:shadow-md",
+                  habit.completed ? "ring-2 ring-wellness-green/20" : "",
+                )}
+              >
                 <CardHeader className="pb-3">
                   <div className="flex items-center justify-between">
                     <div className="flex items-center space-x-3">
-                      <div className={cn(
-                        "p-2 rounded-lg",
-                        habit.bgColor
-                      )}>
+                      <div className={cn("p-2 rounded-lg", habit.bgColor)}>
                         <habit.icon className={cn("w-5 h-5", habit.color)} />
                       </div>
                       <div>
                         <CardTitle className="text-lg">{habit.name}</CardTitle>
-                        <p className="text-sm text-gray-600">{habit.category}</p>
+                        <p className="text-sm text-gray-600">
+                          {habit.category}
+                        </p>
                       </div>
                     </div>
                     <Button
@@ -263,7 +295,9 @@ export default function Habits() {
                       onClick={() => toggleHabit(habit.id)}
                       className={cn(
                         "p-1",
-                        habit.completed ? "text-wellness-green" : "text-gray-400"
+                        habit.completed
+                          ? "text-wellness-green"
+                          : "text-gray-400",
                       )}
                     >
                       {habit.completed ? (
@@ -292,7 +326,9 @@ export default function Habits() {
                       <Button
                         variant="outline"
                         size="sm"
-                        onClick={() => updateHabitProgress(habit.id, habit.current + 1)}
+                        onClick={() =>
+                          updateHabitProgress(habit.id, habit.current + 1)
+                        }
                         disabled={habit.current >= habit.target}
                       >
                         +1 {habit.unit}
@@ -300,7 +336,12 @@ export default function Habits() {
                       <Button
                         variant="outline"
                         size="sm"
-                        onClick={() => updateHabitProgress(habit.id, Math.max(0, habit.current - 1))}
+                        onClick={() =>
+                          updateHabitProgress(
+                            habit.id,
+                            Math.max(0, habit.current - 1),
+                          )
+                        }
                         disabled={habit.current <= 0}
                       >
                         -1 {habit.unit}
@@ -311,7 +352,9 @@ export default function Habits() {
                     <div className="flex items-center justify-between pt-2 border-t">
                       <div className="flex items-center space-x-2">
                         <Flame className="w-4 h-4 text-wellness-orange" />
-                        <span className="text-sm font-medium">{habit.streak} day streak</span>
+                        <span className="text-sm font-medium">
+                          {habit.streak} day streak
+                        </span>
                       </div>
                       <div className="flex items-center space-x-1 text-sm text-gray-600">
                         <Clock className="w-4 h-4" />
@@ -335,17 +378,23 @@ export default function Habits() {
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-7 gap-2 mb-4">
-              {['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'].map((day, index) => (
-                <div key={day} className="text-center">
-                  <p className="text-xs text-gray-600 mb-2">{day}</p>
-                  <div className={cn(
-                    "w-8 h-8 rounded-lg mx-auto flex items-center justify-center text-xs",
-                    index < 5 ? "bg-wellness-green text-white" : "bg-gray-200 text-gray-500"
-                  )}>
-                    {index < 5 ? "✓" : "-"}
+              {["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"].map(
+                (day, index) => (
+                  <div key={day} className="text-center">
+                    <p className="text-xs text-gray-600 mb-2">{day}</p>
+                    <div
+                      className={cn(
+                        "w-8 h-8 rounded-lg mx-auto flex items-center justify-center text-xs",
+                        index < 5
+                          ? "bg-wellness-green text-white"
+                          : "bg-gray-200 text-gray-500",
+                      )}
+                    >
+                      {index < 5 ? "✓" : "-"}
+                    </div>
                   </div>
-                </div>
-              ))}
+                ),
+              )}
             </div>
             <p className="text-sm text-gray-600 text-center">
               5/7 days completed this week. Keep up the great work! 🎉
