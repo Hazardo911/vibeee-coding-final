@@ -56,6 +56,15 @@ export default function Navigation() {
                 })}
               </div>
             </div>
+            <div className="flex items-center">
+              <Link
+                to="/profile"
+                className="flex items-center px-3 py-2 text-sm font-medium text-gray-600 hover:text-wellness-green hover:bg-wellness-light-green/30 rounded-md transition-colors"
+              >
+                <User className="w-4 h-4 mr-2" />
+                Profile
+              </Link>
+            </div>
           </div>
         </div>
       </nav>
