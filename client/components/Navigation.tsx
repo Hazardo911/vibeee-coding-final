@@ -1,12 +1,13 @@
 import { Link, useLocation } from "react-router-dom";
 import { cn } from "@/lib/utils";
-import { 
-  LayoutDashboard, 
-  Target, 
-  Lightbulb, 
+import {
+  LayoutDashboard,
+  Target,
+  Lightbulb,
   Heart,
   Menu,
-  X
+  X,
+  User
 } from "lucide-react";
 import { useState } from "react";
 
