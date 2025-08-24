@@ -44,12 +44,47 @@ const mockData = {
 
 export default function Dashboard() {
   const [currentTime, setCurrentTime] = useState(new Date());
+  const [quote, setQuote] = useState<Quote>(mockData.quote);
+  const [weather, setWeather] = useState<WeatherData>(mockData.weather);
+  const [isLoadingQuote, setIsLoadingQuote] = useState(false);
+  const [isLoadingWeather, setIsLoadingWeather] = useState(false);
 
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentTime(new Date());
     }, 1000);
     return () => clearInterval(timer);
+  }, []);
+
+  useEffect(() => {
+    // Fetch quote on component mount
+    const fetchQuote = async () => {
+      setIsLoadingQuote(true);
+      try {
+        const newQuote = await apiService.getQuote();
+        setQuote(newQuote);
+      } catch (error) {
+        console.error('Failed to fetch quote:', error);
+      } finally {
+        setIsLoadingQuote(false);
+      }
+    };
+
+    // Fetch weather on component mount
+    const fetchWeather = async () => {
+      setIsLoadingWeather(true);
+      try {
+        const newWeather = await apiService.getWeather();
+        setWeather(newWeather);
+      } catch (error) {
+        console.error('Failed to fetch weather:', error);
+      } finally {
+        setIsLoadingWeather(false);
+      }
+    };
+
+    fetchQuote();
+    fetchWeather();
   }, []);
 
   const getGreeting = () => {
