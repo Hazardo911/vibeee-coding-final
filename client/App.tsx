@@ -11,6 +11,7 @@ import Habits from "./pages/Habits";
 import Tips from "./pages/Tips";
 import Mood from "./pages/Mood";
 import UserDetails from "./pages/UserDetails";
+import Nutrition from "./pages/Nutrition";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -26,6 +27,7 @@ const App = () => (
           <Route path="/habits" element={<Habits />} />
           <Route path="/tips" element={<Tips />} />
           <Route path="/mood" element={<Mood />} />
+          <Route path="/nutrition" element={<Nutrition />} />
           <Route path="/profile" element={<UserDetails />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
