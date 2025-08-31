@@ -39,8 +39,8 @@ const initialHabits = [
     id: 1,
     name: "Drink 8 glasses of water",
     icon: Droplets,
-    color: "text-wellness-blue",
-    bgColor: "bg-wellness-light-blue",
+    color: "text-wellness-teal",
+    bgColor: "bg-wellness-light-teal",
     target: 8,
     current: 6,
     unit: "glasses",
@@ -65,7 +65,7 @@ const initialHabits = [
     id: 3,
     name: "Meditate",
     icon: Heart,
-    color: "text-wellness-orange",
+    color: "text-wellness-gold",
     bgColor: "bg-wellness-light-green",
     target: 15,
     current: 15,
@@ -78,8 +78,8 @@ const initialHabits = [
     id: 4,
     name: "Get 8 hours of sleep",
     icon: Moon,
-    color: "text-wellness-purple",
-    bgColor: "bg-wellness-light-blue",
+    color: "text-wellness-navy",
+    bgColor: "bg-wellness-light-teal",
     target: 8,
     current: 7.5,
     unit: "hours",
@@ -156,7 +156,7 @@ export default function Habits() {
     habits.length > 0 ? (completedHabits / habits.length) * 100 : 0;
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-wellness-light-green/20 to-wellness-light-blue/20">
+    <div className="min-h-screen bg-gradient-to-br from-wellness-light-green/20 to-wellness-light-teal/20">
       <Navigation />
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Header */}
@@ -351,7 +351,7 @@ export default function Habits() {
                     {/* Streak */}
                     <div className="flex items-center justify-between pt-2 border-t">
                       <div className="flex items-center space-x-2">
-                        <Flame className="w-4 h-4 text-wellness-orange" />
+                        <Flame className="w-4 h-4 text-wellness-gold" />
                         <span className="text-sm font-medium">
                           {habit.streak} day streak
                         </span>

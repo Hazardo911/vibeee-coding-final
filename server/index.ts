@@ -2,6 +2,7 @@ import "dotenv/config";
 import express from "express";
 import cors from "cors";
 import { handleDemo } from "./routes/demo";
+import { searchFoods, getFoodDetails } from "./routes/nutrition";
 
 export function createServer() {
   const app = express();
@@ -18,6 +19,10 @@ export function createServer() {
   });
 
   app.get("/api/demo", handleDemo);
+
+  // Nutrition API routes
+  app.get("/api/nutrition/search", searchFoods);
+  app.get("/api/nutrition/food/:fdcId", getFoodDetails);
 
   return app;
 }

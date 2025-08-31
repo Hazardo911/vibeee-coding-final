@@ -46,7 +46,7 @@ const moods = [
     id: "energetic",
     label: "Energetic",
     icon: "⚡",
-    color: "text-wellness-orange",
+    color: "text-wellness-gold",
     bgColor: "bg-orange-100",
   },
   {
@@ -60,8 +60,8 @@ const moods = [
     id: "calm",
     label: "Calm",
     icon: "😌",
-    color: "text-wellness-blue",
-    bgColor: "bg-wellness-light-blue",
+    color: "text-wellness-teal",
+    bgColor: "bg-wellness-light-teal",
   },
   {
     id: "anxious",
@@ -74,7 +74,7 @@ const moods = [
     id: "excited",
     label: "Excited",
     icon: "🤩",
-    color: "text-wellness-purple",
+    color: "text-wellness-navy",
     bgColor: "bg-purple-100",
   },
 ];
@@ -137,7 +137,7 @@ export default function Mood() {
     moodHistory.reduce((sum, day) => sum + day.energy, 0) / moodHistory.length;
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-wellness-light-green/20 to-wellness-light-blue/20">
+    <div className="min-h-screen bg-gradient-to-br from-wellness-light-green/20 to-wellness-light-teal/20">
       <Navigation />
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Header */}
@@ -195,7 +195,7 @@ export default function Mood() {
                     onChange={(e) => setCurrentEnergy(parseInt(e.target.value))}
                     className="flex-1"
                   />
-                  <Zap className="w-4 h-4 text-wellness-orange" />
+                  <Zap className="w-4 h-4 text-wellness-gold" />
                 </div>
                 <Progress value={currentEnergy} className="mt-2" />
               </div>
@@ -253,7 +253,7 @@ export default function Mood() {
                   {/* Relaxation Game for negative moods */}
                   {showRelaxationGame && (
                     <div className="mb-6">
-                      <div className="bg-gradient-to-r from-wellness-light-blue to-wellness-light-green p-4 rounded-lg mb-4">
+                      <div className="bg-gradient-to-r from-wellness-light-teal to-wellness-light-green p-4 rounded-lg mb-4">
                         <div className="flex items-center space-x-2 mb-2">
                           <Heart className="w-5 h-5 text-wellness-green" />
                           <h4 className="font-semibold text-wellness-green">
@@ -361,11 +361,11 @@ export default function Mood() {
                 <p className="text-sm text-gray-600">Average Energy</p>
               </div>
               <div className="text-center">
-                <p className="text-2xl font-bold text-wellness-blue">5/7</p>
+                <p className="text-2xl font-bold text-wellness-teal">5/7</p>
                 <p className="text-sm text-gray-600">Positive Days</p>
               </div>
               <div className="text-center">
-                <p className="text-2xl font-bold text-wellness-orange">😊</p>
+                <p className="text-2xl font-bold text-wellness-gold">😊</p>
                 <p className="text-sm text-gray-600">Most Common Mood</p>
               </div>
             </div>
@@ -392,8 +392,8 @@ export default function Mood() {
                   </span>
                 </div>
                 <div className="flex items-center space-x-3">
-                  <div className="w-8 h-8 bg-wellness-light-blue rounded-lg flex items-center justify-center">
-                    <Heart className="w-4 h-4 text-wellness-blue" />
+                  <div className="w-8 h-8 bg-wellness-light-teal rounded-lg flex items-center justify-center">
+                    <Heart className="w-4 h-4 text-wellness-teal" />
                   </div>
                   <span className="text-sm">
                     Deep breathing for 5 minutes reduces stress hormones
@@ -401,7 +401,7 @@ export default function Mood() {
                 </div>
                 <div className="flex items-center space-x-3">
                   <div className="w-8 h-8 bg-orange-100 rounded-lg flex items-center justify-center">
-                    <Smile className="w-4 h-4 text-wellness-orange" />
+                    <Smile className="w-4 h-4 text-wellness-gold" />
                   </div>
                   <span className="text-sm">
                     Gratitude journaling improves overall well-being
@@ -432,7 +432,7 @@ export default function Mood() {
                 </div>
                 <div className="flex justify-between items-center">
                   <span className="text-sm">Sleep correlation</span>
-                  <Badge className="bg-wellness-light-blue text-wellness-blue">
+                  <Badge className="bg-wellness-light-teal text-wellness-teal">
                     Strong
                   </Badge>
                 </div>

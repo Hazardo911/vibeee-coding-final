@@ -8,12 +8,15 @@ import {
   Menu,
   X,
   User,
+  Apple,
+  Activity,
 } from "lucide-react";
 import { useState } from "react";
 
 const navigation = [
   { name: "Dashboard", href: "/", icon: LayoutDashboard },
   { name: "Habits", href: "/habits", icon: Target },
+  { name: "Nutrition", href: "/nutrition", icon: Apple },
   { name: "Tips", href: "/tips", icon: Lightbulb },
   { name: "Mood", href: "/mood", icon: Heart },
 ];
@@ -30,11 +33,11 @@ export default function Navigation() {
           <div className="flex justify-between h-16">
             <div className="flex items-center">
               <div className="flex-shrink-0 flex items-center">
-                <div className="w-8 h-8 bg-gradient-to-br from-wellness-green to-wellness-blue rounded-lg flex items-center justify-center">
-                  <Heart className="w-5 h-5 text-white" />
+                <div className="w-8 h-8 bg-gradient-to-br from-wellness-green to-wellness-teal rounded-lg flex items-center justify-center">
+                  <Activity className="w-5 h-5 text-white" />
                 </div>
                 <span className="ml-2 text-xl font-bold text-wellness-green">
-                  WellnessTracker
+                  MyHealthTrack
                 </span>
               </div>
               <div className="ml-10 flex space-x-8">
@@ -76,11 +79,11 @@ export default function Navigation() {
         <div className="px-4 sm:px-6">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center">
-              <div className="w-8 h-8 bg-gradient-to-br from-wellness-green to-wellness-blue rounded-lg flex items-center justify-center">
-                <Heart className="w-5 h-5 text-white" />
+              <div className="w-8 h-8 bg-gradient-to-br from-wellness-green to-wellness-teal rounded-lg flex items-center justify-center">
+                <Activity className="w-5 h-5 text-white" />
               </div>
               <span className="ml-2 text-xl font-bold text-wellness-green">
-                WellnessTracker
+                MyHealthTrack
               </span>
             </div>
             <button

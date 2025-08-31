@@ -60,10 +60,10 @@ export default {
         wellness: {
           green: "hsl(var(--wellness-green))",
           "light-green": "hsl(var(--wellness-light-green))",
-          blue: "hsl(var(--wellness-blue))",
-          "light-blue": "hsl(var(--wellness-light-blue))",
-          purple: "hsl(var(--wellness-purple))",
-          orange: "hsl(var(--wellness-orange))",
+          teal: "hsl(var(--wellness-teal))",
+          "light-teal": "hsl(var(--wellness-light-teal))",
+          navy: "hsl(var(--wellness-navy))",
+          gold: "hsl(var(--wellness-gold))",
         },
       },
       borderRadius: {

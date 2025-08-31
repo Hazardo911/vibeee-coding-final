@@ -305,7 +305,7 @@ export default function WellnessChatbot({
               <CardTitle className="flex items-center text-lg">
                 <Bot className="w-5 h-5 mr-2 text-wellness-green" />
                 Wellness Assistant
-                <Sparkles className="w-4 h-4 ml-auto text-wellness-orange" />
+                <Sparkles className="w-4 h-4 ml-auto text-wellness-gold" />
               </CardTitle>
             </CardHeader>
 

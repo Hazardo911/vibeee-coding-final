@@ -110,21 +110,21 @@ export default function Dashboard() {
   const suggestions = [
     {
       icon: Droplets,
-      color: "text-wellness-blue",
+      color: "text-wellness-teal",
       title: "Hydration Reminder",
       message: "You're 2 glasses away from your water goal! Drink up! 💧",
       action: "Log Water",
     },
     {
       icon: Sun,
-      color: "text-wellness-orange",
+      color: "text-wellness-gold",
       title: "Weather Alert",
       message: weather.suggestion + " Consider a 20-minute walk.",
       action: "Plan Activity",
     },
     {
       icon: Moon,
-      color: "text-wellness-purple",
+      color: "text-wellness-navy",
       title: "Sleep Preparation",
       message: "Wind down in 2 hours for optimal sleep quality.",
       action: "Set Reminder",
@@ -132,7 +132,7 @@ export default function Dashboard() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-wellness-light-green/20 to-wellness-light-blue/20">
+    <div className="min-h-screen bg-gradient-to-br from-wellness-light-green/20 to-wellness-light-teal/20">
       <Navigation />
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Welcome Header */}
@@ -152,7 +152,7 @@ export default function Dashboard() {
               <CardTitle className="text-sm font-medium">
                 Water Intake
               </CardTitle>
-              <Droplets className="h-4 w-4 text-wellness-blue" />
+              <Droplets className="h-4 w-4 text-wellness-teal" />
             </CardHeader>
             <CardContent>
               <div className="text-2xl font-bold">
@@ -193,7 +193,7 @@ export default function Dashboard() {
           <Card>
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
               <CardTitle className="text-sm font-medium">Sleep</CardTitle>
-              <Moon className="h-4 w-4 text-wellness-purple" />
+              <Moon className="h-4 w-4 text-wellness-navy" />
             </CardHeader>
             <CardContent>
               <div className="text-2xl font-bold">
@@ -213,7 +213,7 @@ export default function Dashboard() {
           <Card>
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
               <CardTitle className="text-sm font-medium">Meditation</CardTitle>
-              <Heart className="h-4 w-4 text-wellness-orange" />
+              <Heart className="h-4 w-4 text-wellness-gold" />
             </CardHeader>
             <CardContent>
               <div className="text-2xl font-bold">
@@ -270,7 +270,7 @@ export default function Dashboard() {
             <Card>
               <CardHeader>
                 <CardTitle className="flex items-center">
-                  <Quote className="w-5 h-5 mr-2 text-wellness-purple" />
+                  <Quote className="w-5 h-5 mr-2 text-wellness-navy" />
                   Daily Inspiration
                 </CardTitle>
               </CardHeader>
@@ -297,7 +297,7 @@ export default function Dashboard() {
             <Card>
               <CardHeader>
                 <CardTitle className="flex items-center">
-                  <Sun className="w-5 h-5 mr-2 text-wellness-orange" />
+                  <Sun className="w-5 h-5 mr-2 text-wellness-gold" />
                   Weather & Activity
                 </CardTitle>
               </CardHeader>
@@ -354,7 +354,7 @@ export default function Dashboard() {
           <Card>
             <CardHeader>
               <CardTitle className="flex items-center">
-                <Droplets className="w-5 h-5 mr-2 text-wellness-blue" />
+                <Droplets className="w-5 h-5 mr-2 text-wellness-teal" />
                 Water Intake Trend
               </CardTitle>
             </CardHeader>
@@ -373,12 +373,12 @@ export default function Dashboard() {
             </CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
               <Button
                 variant="outline"
                 className="h-20 flex flex-col items-center justify-center"
               >
-                <Droplets className="w-6 h-6 mb-2 text-wellness-blue" />
+                <Droplets className="w-6 h-6 mb-2 text-wellness-teal" />
                 <span>Log Water</span>
               </Button>
               <Button
@@ -391,15 +391,23 @@ export default function Dashboard() {
               <Button
                 variant="outline"
                 className="h-20 flex flex-col items-center justify-center"
+                onClick={() => (window.location.href = "/nutrition")}
               >
-                <Heart className="w-6 h-6 mb-2 text-wellness-orange" />
+                <Target className="w-6 h-6 mb-2 text-wellness-gold" />
+                <span>Track Food</span>
+              </Button>
+              <Button
+                variant="outline"
+                className="h-20 flex flex-col items-center justify-center"
+              >
+                <Heart className="w-6 h-6 mb-2 text-wellness-gold" />
                 <span>Log Mood</span>
               </Button>
               <Button
                 variant="outline"
                 className="h-20 flex flex-col items-center justify-center"
               >
-                <Moon className="w-6 h-6 mb-2 text-wellness-purple" />
+                <Moon className="w-6 h-6 mb-2 text-wellness-navy" />
                 <span>Log Sleep</span>
               </Button>
             </div>

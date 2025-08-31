@@ -41,10 +41,10 @@
 
     --wellness-green: 142 76% 36%;
     --wellness-light-green: 155 45% 85%;
-    --wellness-blue: 198 70% 50%;
-    --wellness-light-blue: 198 60% 85%;
-    --wellness-purple: 258 60% 65%;
-    --wellness-orange: 24 80% 60%;
+    --wellness-teal: 180 85% 45%;
+    --wellness-light-teal: 180 60% 85%;
+    --wellness-navy: 225 85% 35%;
+    --wellness-gold: 45 95% 55%;
 
     --sidebar-background: 0 0% 98%;
 
@@ -94,10 +94,10 @@
 
     --wellness-green: 142 70% 45%;
     --wellness-light-green: 155 35% 25%;
-    --wellness-blue: 198 70% 55%;
-    --wellness-light-blue: 198 40% 25%;
-    --wellness-purple: 258 55% 70%;
-    --wellness-orange: 24 75% 65%;
+    --wellness-teal: 180 80% 50%;
+    --wellness-light-teal: 180 40% 25%;
+    --wellness-navy: 225 75% 45%;
+    --wellness-gold: 45 85% 65%;
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
